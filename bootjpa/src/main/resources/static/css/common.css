@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------------------------------------------------------------------
+	File : common.css 
+	Author : Jong-hun, Park 2019-04
+ 	CSS 적용순서 : 아이디 > 태그와 클래스 > 클래스 > 태그
+	CSS 선택자 선언순서 : Type Selector, Layout Selector, Class Selector, Etc
+	CSS 속성 선언순서 : display, position, float/clear, overflow, width/height, margin/padding, border, background, color/font, align, etc 
+--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*IR*/
+.blind {position:absolute; top:-9999px; left:-9999px; overflow:hidden; width:0; height:0; font-size:0; line-height:0; opacity:0;}
+
+
+
+/*Link*/
+a {color:#666; text-decoration:none;}
+/*a:active, a:visited, a:link {color:#ff6b6b;  border:0;}*/
+a:hover {color:#ff6b6b;}
+
+.ellipsis {display:inline-block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+
+
+/*Display*/
+.display_ib {display:inline-block;}
+.display_b {display:block;}
+.display_n {display:none;}
+.display_t {display:table;}
+.display_tc {display:table-cell;}
+
+/*Position*/
+.pr {position:relative;}
+
+
+
+/*Float*/
+.float_n {float:none;}
+.float_l {float:left;}
+.float_r {float:right;}
+.clearfix:after {content:""; display:block; clear:both;}
+
+
+
+/* Scroll */
+.scroll_a {overflow:auto;}
+.scroll_h {overflow:hidden;}
+.scroll_x {overflow-x:scroll;}
+.scroll_y {overflow-y:scroll;}
+
+.scroll_xhya {overflow-x:hidden; overflow-y:auto;}
+
+/*-------------------------------------------------------------------
+    Fixed Size
+-------------------------------------------------------------------*/
+/*Division Width*/
+.w10p {width:10% !important;}
+.w20p {width:20% !important;}
+.w25p {width:25% !important;}
+.w30p {width:30% !important;}
+.w40p {width:40% !important;}
+.w50p {width:50% !important;}
+.w60p {width:60% !important;}
+.w70p {width:70% !important;}
+.w75p {width:75% !important;}
+.w80p {width:80% !important;}
+.w90p {width:90% !important;}
+.w95p {width:95% !important;}
+.w100p {width:100% !important;}
+/*.wAuto {width:auto !important;}*/
+
+
+
+.maxw90p {max-width:90% !important;} /*여행후기목록, 질문 및 답변*/
+
+
+/*Select, Input, Textarea Size*/
+.w90 {width:90px !important;} /*나의 관싱상품*/
+.w100 {width:100px !important;} /*나의 관싱상품*/
+.w120 {width:120px !important;} /*상품상세*/
+.w130 {width:130px !important;} /*상품예약*/
+.w136 {width:136px !important;}
+.w140 {width:140px !important;}
+.w150 {width:150px !important;} /*기업/단체문의 (basicSize)*/
+.w155 {width:155px !important;} /*여행 후기 작성*/
+.w160 {width:160px !important;}	
+.w165 {width:165px !important;} /*기업/단체문의*/
+.w200 {width:200px !important;} /*마일리지 안내*/
+.w210 {width:210px !important;} /*나의 여행내역 조회*/
+.w220 {width:220px !important;} /*상품상세*/
+.w230 {width:230px !important;} /*ci*/
+.w240 {width:240px !important;} /*form*/
+.w260 {width:260px !important;} /*마일리지 합산*/
+
+/*Height*/
+
+/*
+.h100 {height:100px;}
+.h500 {height:500px;}
+
+.min_230 {min-height:230px !important;}
+.min_240 {min-height:240px !important;}
+.min_h650 {min-height:650px !important;}
+*/
+.min_h180 {min-height:180px !important;}
+
+
+/*Margin*/
+.m0   {margin:0 !important;}
+.mauto {margin:auto !important;}
+
+.mt0  {margin-top:0 !important;}
+.mt5  {margin-top:5px !important;}
+.mt10 {margin-top:10px !important;}
+.mt15 {margin-top:15px !important;}
+.mt20 {margin-top:20px !important;}
+.mt25 {margin-top:25px !important;} /*areaList*/
+.mt30 {margin-top:30px !important;}
+.mt35 {margin-top:35px !important;}
+.mt40 {margin-top:40px !important;}
+
+.mt60 {margin-top:60px !important;} /*ci*/
+.mt80 {margin-top:80px !important;} /*웹진 보기*/
+
+.mr0  {margin-right:0 !important;}
+.mr5  {margin-right:5px !important;}
+.mr10 {margin-right:10px !important;}
+.mr15 {margin-right:15px !important;}
+.mr20 {margin-right:20px !important;}
+.mr30 {margin-right:30px !important;}
+.mr40 {margin-right:40px !important;} /*결제계좌 안내 - 무콩장 입금*/
+
+.mb0  {margin-bottom:0 !important;}
+.mb5  {margin-bottom:5px !important;}
+.mb10 {margin-bottom:10px !important;}
+.mb15 {margin-bottom:15px !important;}
+.mb20 {margin-bottom:20px !important;}
+.mb30 {margin-bottom:30px !important;}
+.mb40 {margin-bottom:40px !important;}
+.mb50 {margin-bottom:50px !important;}
+
+.ml0 {margin-left:0 !important;}
+.ml5 {margin-left:5px !important;}
+.ml10 {margin-left:10px !important;}
+.ml15 {margin-left:15px !important;}
+.ml20 {margin-left:20px !important;}
+.ml25 {margin-left:25px !important;}
+.ml30 {margin-left:30px !important;}
+.ml35 {margin-left:35px !important;}
+
+/*Padding*/
+.p0  {padding:0 !important;}
+.p5  {padding:5px !important;}
+.p10 {padding:10px !important;}
+.p15 {padding:15px !important;}
+.p20 {padding:20px !important;}
+.p30 {padding:30px !important;}
+
+.pt0  {padding-top:0 !important;}
+.pt5  {padding-top:5px !important;}
+.pt10 {padding-top:10px !important;}
+.pt13 {padding-top:13px !important;} /*설문조사*/
+.pt15 {padding-top:15px !important;}
+.pt20 {padding-top:20px !important;}
+.pt30 {padding-top:30px !important;}
+.pt40 {padding-top:40px !important;} /*여행 미리보기*/
+
+.pr0  {padding-right:0 !important;}
+.pr5  {padding-right:5px !important;}
+.pr10 {padding-right:10px !important;}
+.pr15 {padding-right:15px !important;}
+.pr20 {padding-right:20px !important;}
+.pr30 {padding-right:30px !important;}
+
+.pb0  {padding-bottom:0 !important;}
+.pb5  {padding-bottom:5px !important;}
+.pb10 {padding-bottom:10px !important;}
+.pb13 {padding-bottom:13px !important;} /*설문조사*/
+.pb15 {padding-bottom:15px !important;}
+.pb20 {padding-bottom:20px !important;}
+.pb30 {padding-bottom:30px !important;}
+
+.pl0  {padding-left:0 !important;}
+.pl5  {padding-left:5px !important;}
+.pl10 {padding-left:10px !important;}
+.pl15 {padding-left:15px !important;}
+.pl20 {padding-left:20px !important;}
+.pl30 {padding-left:30px !important;}
+
+
+
+/*Border Style*/
+.bor_tnone {border-top:0 !important;}
+.bor_rnone {border-right:0 !important;}
+.bor_bnone {border-bottom:0 !important;}
+.bor_lnone {border-left:0 !important;}
+.bor_none  {border:none !important;}
+
+.bor_solid {border:1px solid #ccc;}
+.bor_t {border-top:1px solid #ccc;}
+.bor_r {border-right:1px solid #ccc;}
+.bor_b {border-bottom:1px solid #ccc;}
+.bor_l {border-left:1px solid #ccc;}
+
+.bgNone {background:none !important;} /*textBox_type1 변형 + 보상한도액*/
+/*.bgcLBlue {background-color:#dfe1ee !important;} 해외여행보험*/
+/*.bgcLGray {background-color:#f7f7f7 !important;}*/
+
+
+
+/*Color*/
+.cPoint {color:#ff6b6b !important;}
+.cNavy {color:#404250 !important;}
+.cGreen {color:#0dc456 !important;}
+.cRed {color:#ff4040 !important;}
+/*.cLNavy {color:#565868 !important;}*/
+
+.cLBlack {color:#4c4c4c !important;}
+.cGray {color:#808080 !important;}
+/*.cLGray {color:#ccc !important;}*/
+
+.cBlack {color:#000 !important;}
+.cBlack2 {color:#333 !important;}
+.cWhite  {color:#fff !important;}
+/*
+.cBlue {color:#2263AC !important;}
+.cOrange {color:#ec7823 !important;} asis color
+*/
+
+
+
+/*Font Uppercase*/
+.upCase {text-transform:uppercase;}
+
+
+
+/*IME Mode*/
+.ime_en {ime-mode:disabled; -webkit-ime-mode:disabled;  -moz-ime-mode:disabled;  -ms-ime-mode:disabled;}
+.ime_ko {ime-mode:active;}
+
+
+
+/*Font Size*/
+.fs11 {font-size:11px !important;}
+.fs12 {font-size:12px !important;}
+.fs13 {font-size:13px !important;}
+.fs14 {font-size:14px !important;}
+.fs15 {font-size:15px !important;}
+.fs16 {font-size:16px !important;}
+.fs17 {font-size:17px !important;}
+.fs18 {font-size:18px !important;}
+
+
+
+/*Font Weight*/
+.fn {font-weight:normal !important;}
+.fb {font-weight:bold !important;}
+
+
+
+/*Text Align*/
+.l {text-align:left !important;}
+.c {text-align:center !important;}
+.r {text-align:right !important;}
+.r5 {text-align:right !important; padding-right:5px !important;}
+.r10 {text-align:right !important; padding-right:10px !important;}
+
+.t {vertical-align:top !important;}
+.m {vertical-align:middle !important;}
+.b {vertical-align:bottom !important;}
+
+
+
+/*Line Height*/
+.lh11 {line-height:11px !important;}
+.lh12 {line-height:12px !important;}
+.lh13 {line-height:13px !important;}
+.lh14 {line-height:14px !important;}
+.lh16 {line-height:16px !important;}
+.lh18 {line-height:18px !important;}
+.lh20 {line-height:20px !important;}
+
+.lh24 {line-height:24px !important;} /*greeting*/
+.lh35 {line-height:35px !important;} /*mypage main + favoriteGoods*/
