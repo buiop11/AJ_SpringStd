@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,10 +27,23 @@ public class AlienController {
 	 */
 	
 	
-	@Autowired(required=true) AlienService service;
+	@Autowired(required=true) 
+	AlienService service;  
+	
+	
+	@Value("${logging.file}")
+	private String loggingFile;
+	
+	
+	@Value("${myproperty}")
+	private String myproperty;
 	 
 	@RequestMapping("/")  // 대문 
-	public String home() {
+	public String home(Model model) {
+
+		String greeting = service.getGreeting() + "찍어본다 - 로깅파일 : " + loggingFile +"이건 기본 프로퍼티 : " + myproperty;
+		model.addAttribute("greeting", greeting);// profile예제 
+		
 		return "home.jsp";
 	}
 	

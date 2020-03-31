@@ -29,7 +29,7 @@
 		</dependency>
 
 		
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper // jsp 사용 설정 주입 -->
 		<dependency>
 		    <groupId>org.apache.tomcat</groupId>
 		    <artifactId>tomcat-jasper</artifactId>
@@ -50,6 +50,13 @@
             <artifactId>jstl</artifactId>
         </dependency>
         <!-- //JSTL -->
+        
+        <!-- aop 추가 // 이거 무겁다.  -->
+        <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>com.h2database</groupId>

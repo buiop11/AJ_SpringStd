@@ -3,6 +3,7 @@ package com.ahjin.demo.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.ahjin.demo.dao.AlienRepo;
@@ -10,6 +11,7 @@ import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.service.AlienService;
 
 @Service //핵심 비지니스 로직을 정의 (보기 쉽게)
+@Profile("dev")
 public class AlienServiceImpl implements AlienService {
 
 	
@@ -18,5 +20,12 @@ public class AlienServiceImpl implements AlienService {
 	  // 에어리언 리스트 가져오기
 	  
 	  @Override public List<Alien> getAlienList() { return repo.findAll(); }
+
+	
+	  // profile 테스트
+	  @Override
+	  public String getGreeting() {
+		  return "Hello from Dev!!!!";
+	  }
 	 
 }
