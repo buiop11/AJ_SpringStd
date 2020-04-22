@@ -18,9 +18,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+// 최대한 자바스크립트로 해보자. 
 window.addEventListener('DOMContentLoaded', function(){
 
-		alert("로드도미??");
+		//alert("로드도미??");
 		$.ajax({
 			type:"post",
 			url:"/ajaxAlienList",
@@ -34,8 +35,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
 	})
 	
+	
+function goAdd(){
+	var con = confirm("게시글을 추가하겠습니까?");
+	if(con){
+		window.location="/goAddPage";
+	}
+}	
+	
+	
 
 </script>
+
 
 
 </head>
@@ -84,21 +95,23 @@ window.addEventListener('DOMContentLoaded', function(){
                     </div>
                 </form>
                 
-                <form name="viewFrm" id="viewFrm" method="post" action="/customer/noticeView">
+                <form name="viewAlien" id="viewFrm" method="post" action="/getAlien">
                     <input type="hidden" name="page"/>
                     <input type="hidden" name="perPageNum"/>
                     <input type="hidden" name="searchType"/>
                     <input type="hidden" name="searchWord"/>
-                </form>
                 <!--//boardSearchWrap -->
+                </form> 
+                <!-- ajax 가 포함된 페이지는, 그 페이지와 동일한 효과를내니깐! (비동기방식) form을 여기다 두면 적용될거야! / 실험 되긴하지만 aid 하나만 필요하기 때문에 굳이 여러값 넘겨야할 form을 사용할 필요가 없다. -->
                 
                 <div id="tBody">
                      <!-- ajaxSubmt을 이용하여 리스트가 표시되는 부분 -->
                 </div>
-                
-                <span class="btnsWrap"> <!-- 추가로 작성할 수 있는 페이지로 이동  -->
-                    <button type="button" class="btns mid bgNavy" onclick="javascript:"><span>추가</span></button>
+
+                <span class="btnsWrap" style="margin-top:30px;"> <!-- 추가로 작성할 수 있는 페이지로 이동  -->
+                    <button type="button" class="btns mid bgNavy" onclick="javascript:goAdd();"><span>추가</span></button>
                 </span>
+                
                 <!--//boardPagerWrap -->
             </div>
             <!--//section_body -->

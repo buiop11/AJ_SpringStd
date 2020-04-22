@@ -74,6 +74,29 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- google devtools / livereload 기능 사용하기 위함 -->
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        
+        <!-- Jsoup - 크롤링을 위한 dependency 추가  -->
+        <dependency>
+		  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+		  <groupId>org.jsoup</groupId>
+		  <artifactId>jsoup</artifactId>
+		  <version>1.13.1</version>
+		</dependency>
+		
+		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+				
 	</dependencies>
 
 	<build>

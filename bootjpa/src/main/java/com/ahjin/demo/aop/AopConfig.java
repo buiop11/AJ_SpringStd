@@ -1,6 +1,5 @@
 package com.ahjin.demo.aop;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class AopConfig {
 
 	Logger logger =  LoggerFactory.getLogger(AopConfig.class);
+	// 같은거 Logger logger = LoggerFactory.getLogger(this.getClass());
 	// slf4j 꺼로 import 
 	
 	@Around("execution(* com.ahjin.demo.serviceImpl.AlienServiceImpl.*(..))")
