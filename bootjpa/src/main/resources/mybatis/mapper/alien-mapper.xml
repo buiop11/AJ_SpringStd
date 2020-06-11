@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ahjin.demo.mapper.AlienMapper"> <!-- 연결된 mapper 인터페이스 정보를 기입한다. // 파일명까지 기재해야함  -->
+
+
+<!-- 한개만 가져오기  -->
+<!-- <select id="selectAlienList" resultType="com.ahjin.demo.model.Alien">
+	select aid, name, title, content, write, readcnt from alien where aid=101
+</select> -->
+
+
+<!-- ALIEN 리스트 뽑아오기  -->
+<select id="selectAlienList" resultType="Map"> <!-- 여기는 무조건 Map으로해야함 -->
+	select aid, aname, title, content, writeday, readcnt from alien  
+</select>
+
+
+</mapper>

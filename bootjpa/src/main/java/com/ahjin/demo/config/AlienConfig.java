@@ -1,16 +1,9 @@
 package com.ahjin.demo.config;
 
-import java.util.Locale;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.CookieLocaleResolver;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 //@Component
@@ -31,12 +24,12 @@ public class AlienConfig implements WebMvcConfigurer {
 	// IntercepterEx 클래스를 만들고, 이 @Configuration 클래스에 
 	// implements WebMvcConfigurer을 상속 받은 후 
 	// 이 클래스를 @Bean으로 등록함. 
-	@Override // 인터셉터할거를 추가함. 
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(interCepterEx());
-		// 로케일추가 
-		//registry.addInterceptor(localeChangeInterceptor());
-	}
+	/*
+	 * @Override // 인터셉터할거를 추가함. public void addInterceptors(InterceptorRegistry
+	 * registry) { registry.addInterceptor(interCepterEx()); // 로케일추가
+	 * //registry.addInterceptor(localeChangeInterceptor()); }
+	 */
+	
 	
 	@Bean
 	public IntercepterEx interCepterEx() {

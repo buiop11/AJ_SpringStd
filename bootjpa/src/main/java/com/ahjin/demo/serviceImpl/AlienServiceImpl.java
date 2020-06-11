@@ -1,6 +1,7 @@
 package com.ahjin.demo.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ahjin.demo.dao.AlienRepo;
 import com.ahjin.demo.dao.CommentRepo;
+import com.ahjin.demo.mapper.AlienMapper;
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
 import com.ahjin.demo.service.AlienService;
@@ -20,6 +22,11 @@ public class AlienServiceImpl implements AlienService {
 	  @Autowired AlienRepo alienRepo;
 	  @Autowired CommentRepo commentRepo;
 	  
+	  // mybatis연결 AlienMapper 붙이기  @Autowired가 없어서 클래스가 생성이 안되었음...
+	  @Autowired AlienMapper alienMapper;
+	  
+	  
+	  // ======= JPA ======== // 
 	  // 에어리언 리스트 가져오기
 	  @Override public List<Alien> getAlienList() { 
 		  return alienRepo.findAll(); 
@@ -31,6 +38,7 @@ public class AlienServiceImpl implements AlienService {
 	public Alien getOneAlien(int aid) {
 		return alienRepo.getOne(aid);
 	}
+	
 	 
 	// 게시글 1건 추가하기
 	@Override
@@ -63,9 +71,37 @@ public class AlienServiceImpl implements AlienService {
 
 	// 코멘트 가지고 오기 
 	@Override
-	public List<CommentVO> getComment(int alienNum) {
-		return commentRepo.findByAlienNum(alienNum);
+	public List<CommentVO> getComment(int parent) {
+		return commentRepo.findByParent(parent);
 	}
+
+	
+	// 코멘트 추가하기 
+	@Override
+	public int addComment(CommentVO comment) {
+		int result = 0; 
+		
+		if(comment !=null) {
+			commentRepo.save(comment);
+			result = 1;
+		}
+		
+		return result;
+	}
+
+	
+	// ======= JPA ======== // 
+	
+	
+	
+	// ======= MyBatis ====== //
+	// mybatis로 리스트 가져오기 
+	@Override
+	public List<Alien> getMapperList() throws Exception {
+		return alienMapper.selectAlienList();
+	}
+	// ======= MyBatis ====== //
+
 
 
 

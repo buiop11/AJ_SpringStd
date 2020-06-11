@@ -19,6 +19,6 @@ public interface CommentRepo extends JpaRepository<CommentVO, Integer>{
 	// invaild derived query! No property GT found for type Traversed path: Alien.aid. 함수를 내맘대로 정하면 에러가 난다. 
 	// JPA 도큐먼트에 내용 나옴. 정해져있는 메소드명이 따로 있다.
 	
-	List<CommentVO> findByAlienNum(int AlienNum);
+	List<CommentVO> findByParent(int parent);
 	
 }

@@ -26,4 +26,10 @@ public interface AlienService {
 	// 댓글 리스트 가져오기 (aid에 맞춘) - 다른 테이블 
 	public List<CommentVO> getComment(int alienNum);
 	
+	// 댓글 추가하기 
+	public int addComment(CommentVO comment);
+	
+	// ★★mybatis로 리스트 가져오기 
+	public List<Alien> getMapperList() throws Exception;
+	
 }

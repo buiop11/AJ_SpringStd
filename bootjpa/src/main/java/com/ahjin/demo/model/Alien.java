@@ -12,27 +12,30 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-//@Getter @Setter
+@Getter @Setter
 @Component  //-> ??
 @Data
 @Entity  // JPA가 관리하는 클래스 라는 뜻 - JPA와 매핑할 클래스는 반드시 기재 
 public class Alien implements BeanNameAware {
-
+// alien 이게.. table 이름이랑 같은거 넣어야함. 이름 alienVO로 살짝 바꾸었더니 mysql-binding이 안됨.
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // 키(시퀀스같은) 자동생성
 	private int aid;  // key 
 	
-	@Column(name="name")
+	@Column(name="aname")
 	private String aname;  // 작성자 
 	
-	@Column(name="title")
+	@Column(name="title")	
 	private String title;   // 제목 
 	
 	@Column(name="content")
 	private String content;  // 내용 
 	
-	@Column(name="write")
+	@Column(name="writeday")
 	private Date writeDay;  // 작성일 
 	
 	@Column(name="readcnt")
