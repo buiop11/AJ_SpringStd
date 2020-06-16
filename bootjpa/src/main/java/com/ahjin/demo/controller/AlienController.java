@@ -1,7 +1,6 @@
 package com.ahjin.demo.controller;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ahjin.demo.model.Alien;
-import com.ahjin.demo.model.CommentVO;
 import com.ahjin.demo.model.CrawlingVO;
 import com.ahjin.demo.service.AlienService;
 
@@ -61,7 +59,6 @@ public class AlienController {
 		List<Alien> alienList = service.getAlienList();
 		// List<Alien> alienList = repo.findAll(); // 전체 가져오기
 		model.addAttribute("alienList", alienList);
-
 		System.out.println("차이점체크 : " + alienList);
 
 		return "ajaxAlienList";
@@ -77,7 +74,6 @@ public class AlienController {
 	@RequestMapping("/addAlien") // url이랑 jsp 페이지랑 매칭안됨 // 이 url들어가면 자동으로 그냥 만들어짐... ㅎㄷㄷ ;;
 	public String addAlien(Alien alien) {
 		// 파라미터값을 Alien 으로 받아야한다. --> jpa형태로 저장하려면
-
 		// repo.save(alien)을 탈 수 있는 서비스 페이지로 이동
 		// ★ 저장에 실패했을 때 처리하는거 있어야함 /// --- Exception
 		service.addAlien(alien);
@@ -89,9 +85,6 @@ public class AlienController {
 	// 게시글 삭제하기
 	@RequestMapping("/deleteAlien")
 	public String deleteAlien(int aid) {
-
-		System.out.println("aid~~ 찍어보기 : " + aid);
-
 		service.deleteAlien(aid);
 
 		// 삭제 후 이동시키는 페이지 작성
@@ -105,7 +98,7 @@ public class AlienController {
 		String aid2 = req.getParameter("aid"); // 왜 String으로밖에 못가지고오지??ㅠㅠ
 		int aid = Integer.parseInt(aid2);
 
-		System.out.println("넘어온값 확인 = " + aid);
+		//System.out.println("넘어온값 확인 = " + aid);
 		Alien alien = service.getOneAlien(aid);
 
 		model.addAttribute("alien", alien);
@@ -113,52 +106,13 @@ public class AlienController {
 		return "showAlien";
 	}
 
-	// 상세 페이지 내 - 코멘트 뿌리기
-	@RequestMapping(value = "/ajaxCommentList")
-	public String ajaxCommentList(Model model) {
 
-		// 댓글도 가지고온다.
-		List<CommentVO> comments = service.getComment(5); // 임의로 지정 
-		model.addAttribute("comments", comments);
-
-		return "ajaxCommentList";
-	}
-
-	// 코멘트 생성하기(추가, 등록하기)
-	@RequestMapping("/makeComment") 
-	public int makeComment(HttpServletRequest req, Model model) {
-  
-	  String comment = req.getParameter("comment"); 
-	  String aid2 = req.getParameter("parent"); 
-	  int aid = Integer.parseInt(aid2);
-	  String writer = req.getParameter("writer");
-  
-	  System.out.println("일단 값을 가져오는지 확인해보자 _comments: " + comment + aid);
-	  
-	  CommentVO co = new CommentVO();
-	  co.setParent(aid);
-	  co.setComment(comment);
-	  co.setDepth(1);    // 임의로 지정 
-	  co.setWriter(writer);
-	  co.setSecret("N");
-	  
-	  // 현재시간저장 -- 테이블만들때 디폴트로 해놓긴했는데 ㅡㅡ;;
-	  Date sqlDate = new java.sql.Date(System.currentTimeMillis());
-	  co.setCommentdate(sqlDate);
-	  
-	  int result = service.addComment(co);
-  
-	  return result; 
-	}
-	 
 
 	/*
 	 * @RequestMapping("/makeComment") public int makeComment(CommentVO comment) {
 	 * 
 	 * System.out.println("코멘트가넘어오나 찍어보니~~~~ : " + comment); int result =
 	 * service.addComment(comment);
-	 * 
-	 * 
 	 * 
 	 * org.springframework.dao.InvalidDataAccessResourceUsageException: error
 	 * performing isolated work; SQL [n/a]; nested exception is
@@ -172,12 +126,8 @@ public class AlienController {
 	 * com.ahjin.demo.serviceImpl.AlienServiceImpl.addComment(com.ahjin.demo.model.
 	 * CommentVO)
 	 * 
-	 * 
-	 * 
-	 * 
 	 * return result; }
 	 */
-
 	
 	
 	/*
@@ -216,8 +166,6 @@ public class AlienController {
 	 * 
 	 * mv.addObject(alien); return mv; // 모델엔뷰로 리턴 .. 모델앤뷰는 -> jsp페이지랑 model처럼 값
 	 * 넘기는거랑 모델엔뷰 객체에 한꺼번에 넣어서 던지는 것임.
-	 * 
-	 * 
 	 * 
 	 * @RequestMapping("/alien/{aid}") // 와일드카드 {}
 	 * 
@@ -278,7 +226,6 @@ public class AlienController {
 				// 넣은다음 리스트에 추가
 				mk.add(vo);
 			}
-
 		}
 
 		// String test = el.text();

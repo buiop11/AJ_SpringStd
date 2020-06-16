@@ -17,4 +17,30 @@
 </select>
 
 
+<!-- COMMENT 리스트 뽑아오기 by parent -->
+<select id="selectFindParentDesc" parameterType="Integer" resultType="Map">
+	select a.conum, a.writer, a.parent, a.commentdate, a.comment, a.secret, a.depth, a.depth2 
+		from comment_tb a , comment_tb b 
+	where a.conum = b.conum  and  a.parent= #{parent}
+ 		order by a.depth2, a.depth, a.commentdate desc
+</select>
+
+
+<!-- comment 새로 만들때 _ conum을 depth2에 넣는다./keyProperty 이거 parameterType- CommetVO에 있는거여야함 -->
+<!-- commentdate 지금 일단 지웠음! default값으로 넣어보려고 -->
+<insert id="makeComment" parameterType="com.ahjin.demo.model.CommentVO">
+	<selectKey keyProperty="depth2" resultType="Integer" order="BEFORE">
+   		SELECT IFNULL(MAX(conum),0)+1 FROM comment_tb
+	</selectKey>
+	insert into comment_tb (writer, parent, depth, depth2, secret, comment) 
+		values(#{writer},#{parent},#{depth},#{depth2},#{secret},#{comment})
+</insert>
+
+<!-- 대댓글일때 -->
+<insert id="makeReComment" parameterType="com.ahjin.demo.model.CommentVO">
+	insert into comment_tb (writer, parent, depth, depth2, secret, comment) 
+		values(#{writer},#{parent},#{depth},#{depth2},#{secret},#{comment})
+</insert>
+
+ 
 </mapper>

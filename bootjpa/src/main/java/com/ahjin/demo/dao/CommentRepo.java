@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import com.ahjin.demo.model.CommentVO;
 
 @Repository
@@ -12,7 +11,6 @@ public interface CommentRepo extends JpaRepository<CommentVO, Integer>{
 // CrudRepository<Alien, Integer>  : Alien 객체의 Primary Key  --> 리턴타입들이 복잡 / JpaRepository는 List로 리턴가능
 	
 	// 아래는 개발자 구미대로 추가해서 넣는거. 
-	
 	//List<Alien> findByTech(String tech);
 	
 	//List<Alien> findByAidGreaterThan(int aid);

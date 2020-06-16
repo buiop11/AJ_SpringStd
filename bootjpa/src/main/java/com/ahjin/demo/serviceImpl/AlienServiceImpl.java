@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ahjin.demo.dao.AlienRepo;
 import com.ahjin.demo.dao.CommentRepo;
@@ -69,41 +70,43 @@ public class AlienServiceImpl implements AlienService {
 		return "Hello from Dev!!!!";
 	}
 
-	// 코멘트 가지고 오기 
-	@Override
-	public List<CommentVO> getComment(int parent) {
-		return commentRepo.findByParent(parent);
-	}
-
-	
-	// 코멘트 추가하기 
-	@Override
-	public int addComment(CommentVO comment) {
-		int result = 0; 
-		
-		if(comment !=null) {
-			commentRepo.save(comment);
-			result = 1;
-		}
-		
-		return result;
-	}
-
-	
 	// ======= JPA ======== // 
 	
 	
 	
 	// ======= MyBatis ====== //
+	// 코멘트 추가하기
+	@Transactional
+	@Override
+	public int addComment(CommentVO comment) throws Exception{
+		//CommentVO comment2 = commentRepo.save(comment);
+		//System.out.println("저장된 정보 찍어보기!!" + comment2);
+		int gg = 0;
+		if(comment.getDepth2() != 0) {  // 대댓글일때 dpeht=2
+			gg = alienMapper.makeReComment(comment);
+		}else {
+			gg = alienMapper.makeComment(comment); // 첫댓글 depth=1
+		}
+		return gg;
+	}
+	
+	
 	// mybatis로 리스트 가져오기 
 	@Override
 	public List<Alien> getMapperList() throws Exception {
 		return alienMapper.selectAlienList();
 	}
+
+	// 코멘트 가지고 오기 
+	@Override
+	public List<CommentVO> getComment(int parent) throws Exception {
+		//return commentRepo.findByParent(parent);
+		return alienMapper.selectFindParentDesc(parent);
+	}
+
 	// ======= MyBatis ====== //
 
-
-
-
-
+	
+	
+	
 }
