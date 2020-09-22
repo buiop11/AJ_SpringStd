@@ -91,8 +91,8 @@ button {border:0; background:none; cursor:pointer;}
 .main .quickList li.ico_event a span:after {background:url(/static/images/common/ico/ico_quick_event_black.png) 0 0 no-repeat;}
 .main .quickList li.ico_period a span:after {background:url(/static/images/common/ico/ico_quick_period_black.png) 0 0 no-repeat;}
 
-/*-----util-----*/
-.utilWrap {position:absolute; right:0; top:8px;}
+/*-----util / 아진 사용-----*/
+.utilWrap {position:absolute; right:0; top:28px;} /* 수정 */
 .utilList {overflow:hidden;}
 .utilList li {position:relative; float:left; margin-left:11px; padding-left:12px;}
 .utilList li:after {content:""; display:block; position:absolute; left:0; top:50%; width:1px; height:10px; margin-top:-5px; background-color:#ddd;}
@@ -100,7 +100,8 @@ button {border:0; background:none; cursor:pointer;}
 .utilList li:first-child:after {display:none;}
 .utilList li a {display:block; position:relative; color:#85868f; font-size:13px; line-height:33px;}
 
-.logoWrap {overflow:hidden; height:46px; text-align:center;}
+/*--- 아진 사용 --- */
+.logoWrap {overflow:hidden; height:46px; text-align:center; margin-top:100px;}   
 .logoWrap .logo {display:inline-block;}
 
 /*-----topSearch-----*/
@@ -244,12 +245,6 @@ button {border:0; background:none; cursor:pointer;}
 #lnb.is-active .lnbLinkWrap a:after {content:""; display:block; position:absolute; right:15px; top:50%; width:8px; height:15px; margin-top:-7px; background:url(/static/images/common/bg_8x15_arrow_gray.png) 0 0 repeat;}
 #lnb.is-active .lnbLinkWrap a:first-child {width:174px;}
 
-/*항공 lnb*/
-#lnb.ticket {height:55px;}
-#lnb.ticket .lnb {float:none; display:table; width:100%; height:55px;}
-#lnb.ticket .lnb li.node1 {float:none; display:table-cell;}
-#lnb.ticket .lnb li.node1 > a.depth1 {padding:20px 32px 18px 32px; font-size:16px; text-align:center;}
-
 /*--------------------
 	main
 --------------------*/
@@ -316,9 +311,10 @@ button {border:0; background:none; cursor:pointer;}
 
 
 /*------------------------------------------------------------------------------------------
-					container
+					container 아진 사용
 -------------------------------------------------------------------------------------------*/
-#container {position:relative; z-index:2; min-height:800px; padding:214px 0 100px 0;}
+#container {position:relative; z-index:2; min-height:800px; padding:100px 0 100px 0;
+			 text-align: center;}
 
 
 
@@ -353,15 +349,6 @@ button {border:0; background:none; cursor:pointer;}
 #snb.customer .snb li.node1 {display:table-cell; float:none; width:14.28571%; padding-left:0; text-align:center;}
 #snb.customer .snb li.node1 a.depth1 {padding:16px 0 15px 0; border-left:1px solid #ccc; border-bottom:0;}
 #snb.customer .snb li.node1:first-child a.depth1 {border-left:0;}
-
-/*항공 고객센터*/
-#snb.ticket {float:none !important; width:auto !important; margin:40px 0 14px 0; padding:0 !important; border:0 !important;}
-#snb.ticket .snb {display:table; width:100%; padding:0;}
-#snb.ticket .snb li.node1 {display:table-cell; float:none; width:33.3%; padding:0 !important; border:0 !important; text-align:center; box-sizing:border-box !important;}
-#snb.ticket .snb li.node1:first-child {width:33.4%;}
-#snb.ticket .snb li.node1 a.depth1 {padding:16px 0 15px 0; border-left:1px solid #ccc; border-bottom:0; color:#333 !important; box-sizing:border-box !important;}
-#snb.ticket .snb li.node1:first-child a.depth1 {border-left:0;}
-#snb.ticket .snb li.node1.active a.depth1 {color:#ff6b6b !important;}
 
 
 
@@ -457,40 +444,6 @@ button {border:0; background:none; cursor:pointer;}
 .keyNumWrap .keyNum + .keyNum .workingTimeList {left:35px;}
 .keyNumWrap .keyNum + .keyNum .workingTimeList li {width:192px;}
 
-/*항공 대표번호 layout.css*/
-.keyNumWrap.ticket .keyNum {width:100%; min-height:50px;}
-.keyNumWrap.ticket .keyNumList:first-child {display:table-cell; height:50px; vertical-align:middle;}
-.keyNumWrap.ticket .workingTimeList {left:auto; right:0;}
-.keyNumWrap.ticket .workingTimeList li {float:none; width:100%; margin-top:15px;}
-
-/*directNum*/
-.directNumWrap {padding:37px 0 37px 0; border-top:1px solid #e1e1e1; background-color:#f8f8f8; letter-spacing:-0.8px;}
-.directNumWrap.on {padding-bottom:21px;}
-.directNumWrap .inner {padding-top:35px;}
-.directNumTit {position:absolute; left:0; top:0;}
-.directNumTit h6 {display:inline-block; margin-right:9px; color:#4c4c4c; font-size:24px; font-weight:bold; letter-spacing:-0.48px;}
-.ico_directNumTit {display:inline-block; position:relative; padding:1px 0 1px 35px;}
-.ico_directNumTit:after {content:""; display:block; position:absolute; left:0; top:50%; width:29px; height:30px; margin-top:-16px; background:url(/static/images/common/ico/ico_directNumTit.png) 0 0 no-repeat;}
-
-.btns_directNum {vertical-align:top;}
-.btns_directNum span {display:inline-block; position:relative; padding:5px 24px 3px 12px; border:1px solid #808080; border-radius:20px; background-color:#fff; color:#808080; font-size:14px; vertical-align:top;}
-.btns_directNum span:after {content:""; display:block; position:absolute; right:10px; top:50%; width:10px; height:8px; margin-top:-4px; background:url(/static/images/common/bg_10x8_arrow_gray.png) 0 0 no-repeat; background-position:0 -18px;}
-.directNumWrap.on .btns_directNum span:after {background-position:0 0;}
-
-.directNumCon {display:none;}
-.directNumWrap.on .directNumCon {display:block;}
-.directNumCon:after {content:""; display:table; clear:both;}
-.directNum {float:left; padding-left:39px; border-right:1px solid #e1e0e0;}
-.directNum:first-child {width:334px; padding-left:0;}
-.directNum:first-child + .directNum {width:378px;}
-.directNum:first-child + .directNum + .directNum {width:338px; border-right:0;}
-.directNumList {padding-bottom:20px;}
-.directNumList li {position:relative; margin-top:25px; letter-spacing:-0.8px;}
-.directNumList .tit {color:#4c4c4c; font-size:16px; font-weight:normal;}
-.directNumList .tel {position:absolute; right:0; top:0; width:134px; color:#808080; font-size:16px; text-align:left;}
-.kakaoPlusWrap {position:absolute; right:4px; bottom:0;}
-.directNumWrap.on .kakaoPlusWrap {bottom:17px;}
-.kakaoPlusWrap .btns_kakaoPlus {display:inline-block; width:300px; height:43px; background:url(/static/images/common/img/img_footer_kakaoplus.png) 0 0 repeat; font-size:0;}
 
 .notifyWrap {border-top:1px solid #e1e1e1;}
 .notifyWrap .inner {padding:17px 0;}
@@ -503,24 +456,6 @@ button {border:0; background:none; cursor:pointer;}
 .noticeWrap dl dd .btns_more {position:absolute; right:0; top:50%; margin-top:-12px;}
 #footer .inner .snsWrap {float:right;}
 
-/*푸터SNS*/
-.snsList {overflow:hidden;}
-.snsList li {float:left; margin-left:10px;}
-.snsList li a {display:block; overflow:hidden; width:30px; height:30px; border:1px solid #e7e7e7; border-radius:50%; font-size:0; background-size:95% auto !important;}
-.snsList li.ico_sns_kakaoplus a {background:url(/static/images/common/ico/ico_sns_kakaoplus.png) center center no-repeat;}
-.snsList li.ico_sns_nblog a {background:url(/static/images/common/ico/ico_sns_nblog.png) center center no-repeat;}
-.snsList li.ico_sns_facebook a {background:url(/static/images/common/ico/ico_sns_facebook.png) center center no-repeat;}
-.snsList li.ico_sns_npost a {background:url(/static/images/common/ico/ico_sns_npost.png) center center no-repeat;}
-.snsList li.ico_sns_youtube a {background:url(/static/images/common/ico/ico_sns_youtube.png) center center no-repeat;}
-.snsList li.ico_sns_instagram a {background:url(/static/images/common/ico/ico_sns_instagram.png) left center no-repeat; background-size:110% auto !important;}
-
-#fnb {background-color:#ff6b6b; letter-spacing:-0.64px;}
-.fnb {overflow:hidden;}
-.fnb li {float:left;}
-.fnb li a {display:block; padding:19px 22px 15px 22px; color:#fff; text-align:center;}
-.fnb li:first-child a {padding-left:5px;}
-.fnb li:last-child a {padding-right:0;}
-.fnb li.point a {color:#000;}
 
 .footerWrap {position:relative; background-color:#46474b; color:#fff;}
 .footerWrap .inner {padding:33px 33px 33px 0;}
@@ -585,7 +520,7 @@ button {border:0; background:none; cursor:pointer;}
 .lp_phoneDetail table td.headnum_title {font-weight:600; text-align:left; width:40%;}
 .lp_phoneDetail table td.child_title {text-align:left; width:30%;}
 
-/*(퀵메뉴)신용카드 무이자할부 안내*/
+/*(퀵메뉴)신용카드 무이자할부 안내 ---- 아진 사용 */
 .lp_cardInfo .lp_sec .lp_header .tit {text-align:center;}
 .lp_cardInfo .lp_container {max-height:none !important;}
 .lp_cardInfo .textBox {padding:10px 10px 6px 10px; border:1px solid #000; background:none; text-align:center;}

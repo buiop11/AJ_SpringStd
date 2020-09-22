@@ -97,8 +97,6 @@ public class AlienController {
 
 		String aid2 = req.getParameter("aid"); // 왜 String으로밖에 못가지고오지??ㅠㅠ
 		int aid = Integer.parseInt(aid2);
-
-		//System.out.println("넘어온값 확인 = " + aid);
 		Alien alien = service.getOneAlien(aid);
 
 		model.addAttribute("alien", alien);
@@ -120,11 +118,6 @@ public class AlienController {
 	 * Caused by: org.hibernate.exception.SQLGrammarException: error performing
 	 * isolated work Caused by: java.sql.SQLSyntaxErrorException: Table
 	 * 'test.hibernate_sequence' doesn't exist
-	 * 
-	 * org.springframework.aop.AopInvocationException: Null return value from advice
-	 * does not match primitive return type for: public int
-	 * com.ahjin.demo.serviceImpl.AlienServiceImpl.addComment(com.ahjin.demo.model.
-	 * CommentVO)
 	 * 
 	 * return result; }
 	 */

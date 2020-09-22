@@ -33,7 +33,6 @@ $(document).ready(function(){
 	$("#depth2").hide();  // comment_depth2 숨겨두기
 
 	var aid = $("#aid").val(); // jquery는 val() 
-	alert("넘어온 값 확인! " + aid);
 	var alldata = {"aid" : aid}; // 배열로 넘긴다.
 	
 	$.ajax({

@@ -19,4 +19,7 @@ public interface CommentRepo extends JpaRepository<CommentVO, Integer>{
 	
 	List<CommentVO> findByParent(int parent);
 	
+	//@Query("select count(conum) from comment_tb where parent = {}")
+	//int reCommentCount(int aid);
+	
 }

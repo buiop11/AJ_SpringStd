@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------------------------------------------------------------------
+	File : main.css 
+	Author : Jong-hun, Park 2019-04
+ 	CSS 적용순서 : 아이디 > 태그와 클래스 > 클래스 > 태그
+	CSS 선택자 선언순서 : Type Selector, Layout Selector, Class Selector, Etc
+	CSS 속성 선언순서 : display, position, float/clear, overflow, width/height, margin/padding, border, background, color/font, align, etc 
+-------------------------------------------.wzPrevList .listItem .listInfo-------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------
+                                         * Use Main only*
+-------------------------------------------------------------------------------------------*/
+/**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+.owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden}.owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{visibility:hidden}.owl-carousel.owl-drag .owl-item{-ms-touch-action:pan-y;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.owl-carousel .animated{animation-duration:1s;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{animation-name:fadeOut}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=""]{max-height:0}.owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}
+
+
+
+/*------------------------------------------------------------------------------------------
+                                         * content *
+-------------------------------------------------------------------------------------------*/
+/*-----메인 일정별 여행지-----*/
+#mainSec02 .tab_list2 {position:absolute; right:70px; top:9px;}
+#mainSec02 .tab_list2.tabList_type3 li a {font-size:15px;}
+.section_wrap.type1 .prodListWrap {overflow:hidden; height:288px;}
+.section_wrap.type1 .prodList.four_up .item {width:33.333333%;}
+
+/*-----오직KRT-----*/
+.onlyKRTWrap {position:relative; width:783px;}
+.tab_list2.onlyKRTTxt {display:block; overflow:hidden; width:100%; height:49px; margin:0; padding:0 20px;}
+.tab_list2.onlyKRTTxt li {display:inline-block; float:left; text-align:center;}
+.tab_list2.onlyKRTTxt li a {display:inline-block; float:left; height:49px; line-height:51px; margin:0; padding:0 28px; border:0; font-size:18px; font-weight:bold;}
+.tab_list2.onlyKRTTxt li:first-child a {padding-left:28px}
+.tab_list2.onlyKRTTxt .owl-item:first-child a {padding-left:26px;}
+.tab_list2.onlyKRTTxt .on a {color:#ff6b6b;}
+.tab_list2.onlyKRTTxt li a.active {color:#ff6b6b;} /*bxSlider*/
+
+
+/*ie cb - owlCarousel autoWidth Bug*/
+.onlyKRTTxt .owl-stage {white-space:nowrap !important;}
+.onlyKRTTxt .owl-item {display:inline-block !important; float:none !important;}
+.onlyKRTTxt .owl-nav button {display:inline-block; position:absolute; top:0; width:20px; height:49px; font-size:0;}
+.onlyKRTTxt .owl-nav .owl-prev {left:0; background:#fff url(/static/images/common/bg_10x15_arrowL.png) center center no-repeat;}
+.onlyKRTTxt .owl-nav .owl-next {right:0; background:#fff url(/static/images/common/bg_10x15_arrowR.png) center center no-repeat;}
+.onlyKRTWrap .tab_content {border:1px solid #fcd3d3;} /*ajax 호출 공백방지*/
+.onlyKRTWrap .prodList_sp2 {margin:0;}
+.onlyKRTWrap .prodList_sp2 .item {padding:0;}
+.onlyKRTWrap .prodList.prodList_sp2 .listItem {border:0;}
+.onlyKRTWrap .prodList.prodList_sp2 .listItem .listImage .img img {min-height:252px;}
+
+/*-----이럴땐 여기!-----*/
+#mainSec06 .tabWrap {position:relative; overflow:hidden; height:300px; padding-left:180px;}
+#mainSec06 .tabWrap:after {content:""; display:block; position:absolute; left:0; bottom:0; z-index:0; width:180px; height:1px; background-color:#fcd3d3;}
+#mainSec06 .tabWrap .tab_list2 {position:absolute; left:0; top:0; width:180px; margin:0;}
+#mainSec06 .tabWrap .tab_list2:after {content:""; display:block; position:absolute; left:0; top:0; z-index:0; width:1px; height:300px; background-color:#fcd3d3;}
+#mainSec06 .tabWrap .tab_list2 li {display:block; position:relative; z-index:1; margin:0; padding-left:1px;}
+#mainSec06 .tabWrap .tab_list2 li a {overflow:hidden; height:60px; line-height:64px; border:1px solid #fff; border-top:1px solid #fcd3d3; border-right:1px solid #fcd3d3; border-radius:0; text-overflow:ellipsis; white-space:nowrap;}
+#mainSec06 .tabWrap .tab_list2 li:last-child a {border-bottom:1px solid #fcd3d3;}
+#mainSec06 .tabWrap .tab_list2 li.on a {margin-left:-1px; border:1px solid #ff6b6b;}
+#mainSec06 .tabWrap .tab_content img {width:602px; height:300px;}
+
+.tripTextBox {position:absolute; right:30px; top:50%; min-width:200px; height:140px; margin-top:-70px; padding:30px 10px 30px 20px; background-color:#fff;}
+.tripTextBox .inner {display:inline-block; position:relative; min-width:166px; max-width:260px;}
+.tripTextBox .inner:after {content:""; display:block; position:absolute; right:-30px; top:50%; width:40px; height:40px; margin-top:-20px; border-radius:50%; background:#ff6b6b url(/static/images/common/ico/ico_rArrow.png) center center no-repeat;}
+.tripTextBox .inner > span {display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; letter-spacing:-1px;}
+.tripTextBox .inner .tit {color:#333; font-size:20px; font-weight:bold;}
+.tripTextBox .inner .tripArea {margin:11px 0 14px 0; color:#ff6b6b; font-size:24px; font-weight:bold;}
+.tripTextBox .inner .con {color:#333; font-size:16px;}
+
+/*-----여행 미리보기-----*/
+.videoList {margin:0;}
+.videoList .item {float:none; width:100%; padding:0;}
+.videoList li + li {margin-top:16px;}
+.videoList .listItem {display:block; background-color:#e3e3e3;}
+.videoList .listItem .listImage .img {height:142px;}
+.videoList .listItem .listImage img {width:100%; height:142px;}
+
+/*-----웹진 (여행정보 메인웹진 상속)-----*/
+.wzPrevList .listItem .listImage {float:none; width:auto;}
+.wzPrevList .listItem .listImage .img {overflow:hidden; height:292px;}
+.wzPrevList .listItem .listImage img {width:252px; height:100%;}
+.wzPrevList .listItem .listInfo {float:none; height:84px; border:0; position:absolute; left:0; bottom:0; width:216px; margin:0 17px 0 17px; padding:10px 14px 4px 14px; background-color:#fff;}
+.wzPrevList .listItem .listInfo .tit {overflow:hidden; text-overflow:ellipsis; white-space:nowrap; height:auto; margin-top:8px; color:#4c4c4c; font-size:16px; font-weight:bold; line-height:24px;}
+.wzPrevList .listItem .listInfo .con {overflow:hidden; text-overflow:ellipsis; white-space:nowrap; height:auto; margin-top:0; font-size:16px;}
+.wzPrevList .listItem .listInfo p {display:inline-block;}
+
+.wzPrevList .listItem .count {display:block; color:#ff6b6b; font-size:14px; font-weight:bold;}

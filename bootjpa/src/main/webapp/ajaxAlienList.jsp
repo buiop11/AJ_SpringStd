@@ -46,7 +46,10 @@
 	                <tr class="notice">
 	                    <td class="con">${row.aid}</td>
 	                    <td class="con">
-	                    	<a href="/getAlien?aid=${row.aid}">${row.title} </a>
+	                    	<a href="/getAlien?aid=${row.aid}">${row.title} 
+	                    		<%-- <c:if="test">
+	                    		</c:if> --%>
+	                    	</a>
 	                    </td>
 	                    <td>${row.aname}</td>
 	                    <td>${row.readCnt}</td>
