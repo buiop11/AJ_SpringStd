@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CrawlingVO;
+import com.ahjin.demo.model.GuestBook;
 import com.ahjin.demo.service.AlienService;
 
 @Controller // @RestController 사용시 전부 값의 형태로 넘어가기 떄문에 아래 @ResponseBody 사용안해도됨
@@ -45,7 +46,30 @@ public class AlienController {
 
 		return "home";
 	}
+	
+	
+	
+	// 2020-부스트코스-방명록만들기 
+	@RequestMapping("/guestbooks")
+	public String guestBooks() {
+		return "guestbooks";
+	}
+	// 방명록 리스트 
+	@RequestMapping("/ajaxGuestBooks")
+	public String ajaxGuestBooks(Model model) {
+		
+		List<GuestBook> guestbook = service.getGuestBook();
+		model.addAttribute("guestbooks",guestbook);
+		return "ajaxGuestBooks";
+	}
+	// 방명록 추가 
+	@RequestMapping("/addGuestBook")
+	public String addGuestBook(GuestBook guestbook) {
+		service.addGuestBook(guestbook);
+		return "guestbooks";
+	}
 
+	// --------- 게시판 ------- //
 	@RequestMapping("/alienList") // 게시판 리스트
 	public String alienList() {
 		return "alienList";
@@ -178,7 +202,7 @@ public class AlienController {
 		CrawlingVO vo;
 
 		for (int i = 0; i < 5; i++) {
-			// 일단ㄷ 5개만 (로딩이 기니깐) 1000까지하려면 i<100으로 수정
+			// 일단 5개만 (로딩이 기니깐) 1000까지하려면 i<100으로 수정
 
 			String url = "http://m.mk.co.kr/yearbook/index.php?page=" + i + "&TM=Y2&MM=T0";
 

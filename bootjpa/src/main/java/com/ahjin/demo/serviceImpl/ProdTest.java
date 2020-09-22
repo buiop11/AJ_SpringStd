@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
+import com.ahjin.demo.model.GuestBook;
 import com.ahjin.demo.service.AlienService;
 
 
@@ -58,6 +59,18 @@ public class ProdTest implements AlienService {
 
 	@Override
 	public int addComment(CommentVO comment) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<GuestBook> getGuestBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int addGuestBook(GuestBook guestbook) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

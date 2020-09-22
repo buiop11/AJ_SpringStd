@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ahjin.demo.dao.AlienRepo;
 import com.ahjin.demo.dao.CommentRepo;
+import com.ahjin.demo.dao.GuestBookRepo;
 import com.ahjin.demo.mapper.AlienMapper;
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
+import com.ahjin.demo.model.GuestBook;
 import com.ahjin.demo.service.AlienService;
 
 @Service //핵심 비지니스 로직을 정의 (보기 쉽게)
@@ -22,29 +24,45 @@ public class AlienServiceImpl implements AlienService {
 	
 	  @Autowired AlienRepo alienRepo;
 	  @Autowired CommentRepo commentRepo;
+	  @Autowired GuestBookRepo guestbookRepo;
 	  
 	  // mybatis연결 AlienMapper 붙이기  @Autowired가 없어서 클래스가 생성이 안되었음...
 	  @Autowired AlienMapper alienMapper;
 	  
 	  
-	  // ======= JPA ======== // 
-	  // 에어리언 리스트 가져오기
-	  @Override public List<Alien> getAlienList() { 
-		  return alienRepo.findAll(); 
-	  }
-
+    // ======= JPA ======== // 
+	  
+	  
+	//---------부스트코스 방명록 ------------//
+	@Override
+	public List<GuestBook> getGuestBook() {
+		return guestbookRepo.findAll();
+	}
+	// 방명록 저장 
+	@Override
+	public int addGuestBook(GuestBook guestbook) {
+	int result = 0; 
+		
+		if(guestbook !=null) {
+			guestbookRepo.save(guestbook);
+			result = 1;
+		}
+		return result;
+	}
+		
 	
+	// 에어리언 리스트 가져오기
+	@Override public List<Alien> getAlienList() { 
+		return alienRepo.findAll(); 
+	}
 	// 게시글 1개 가져오기  
 	@Override
 	public Alien getOneAlien(int aid) {
 		return alienRepo.getOne(aid);
 	}
-	
-	 
 	// 게시글 1건 추가하기
 	@Override
 	public int addAlien(Alien alien) {
-		
 		int result = 0; 
 		
 		if(alien !=null) {
@@ -54,7 +72,6 @@ public class AlienServiceImpl implements AlienService {
 		
 		return result;
 	}
-	
 	// 게시글 1건 삭제하기 
 	@Override
 	public void deleteAlien(int aid) {
@@ -70,7 +87,6 @@ public class AlienServiceImpl implements AlienService {
 		return "Hello from Dev!!!!";
 	}
 
-	// ======= JPA ======== // 
 	
 	
 	
@@ -104,9 +120,8 @@ public class AlienServiceImpl implements AlienService {
 		return alienMapper.selectFindParentDesc(parent);
 	}
 
-	// ======= MyBatis ====== //
 
 	
-	
+
 	
 }

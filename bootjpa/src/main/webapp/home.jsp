@@ -79,8 +79,8 @@ if(canvas.getContext){
 
                 <li><a href="/mypage"><span>마이페이지</span></a></li>
                 <li><a href="/mypage/bookingList"><span>예약/결제조회</span></a></li>
-                <li><a href="/customer"><span>고객센터</span></a></li>
-                <li><a href="/tourinfo"><span>여행정보</span></a></li>
+                <li><a href="/customer"><span>고객센터/여행정보</span></a></li>
+                <li><a href="/guestbook"><span>방명록</span></a></li>
             </ul>
         </div>
         <!--//utilWrap -->
