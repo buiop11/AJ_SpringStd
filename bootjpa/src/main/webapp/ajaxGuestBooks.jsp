@@ -10,18 +10,22 @@
 		</div>
 	</c:if>
 	
-	<c:if test="${not empty guestbooks}">
-		<table>
-			<c:forEach var="row" items="${guestbooks}">
-					<tr>
-						<td>${row.id}</td>  
-						<td>${row.name}</td>
-						<td>${row.content}</td>
-						<td>날짜: ${row.regdate}</td>
-					</tr>
-			</c:forEach>
-		</table>
-	</c:if>
+	<div class="tableWrap p30">	
+		<c:if test="${not empty guestbooks}">
+			<table class="table_type0">
+				<c:forEach var="row" items="${guestbooks}">
+						<tr>
+							 <th style="width:50px">${row.id}</th>  
+							 <td>
+							  ${row.name} 
+							 <div>${row.content}</div>
+							<span style="float:right">날짜: ${row.regdate}</span>  
+							<span>[수정 / 삭제 기능 만들기]</span></td>
+						</tr>
+				</c:forEach>
+			</table>
+		</c:if>
+	</div>
 </div>
 
 

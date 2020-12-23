@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8" %>
     
-<!-- <link href="/css/base.css" rel="stylesheet" type="text/css" />-->
+<link href="/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/ui_style.css" rel="stylesheet" type="text/css" />
+<link href="/css/content.css" rel="stylesheet" type="text/css" />
+<link href="/css/layout.css" rel="stylesheet" type="text/css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">   
@@ -29,13 +31,13 @@ window.addEventListener('DOMContentLoaded',function(){
 
 function onSubmit(){
 	if(addGuestBookFrm.name.value == ''){
-		alert("ÀÌ¸§ÀÛ¼º!");
+		alert("ì´ë¦„ì‘ì„±!");
 		addGuestBookFrm.name.focus();
 		return false;
 	}
 
 	if(addGuestBookFrm.content.value == ''){
-		alert("³»¿ë ÀÛ¼º!");
+		alert("ë‚´ìš© ì‘ì„±!");
 		addGuestBookFrm.content.focus();
 		return false;
 	}
@@ -44,36 +46,32 @@ function onSubmit(){
 </script>
 
 
+<!-- í—¤ë”í˜ì´ì§€ ë„£ê¸° (í˜ì´ì§€ ëª¨ë“ˆí™”)  -->
+<jsp:include page="/layout/header.jsp" flush="false"/>
+
+
 
 
 <body>
 
 
-	<div id="tBody"></div>
+<h1 class="p30"> ë°©ëª…ë¡  </h1>
+
+<div id="tBody"></div> <!--ajax ë°©ëª…ë¡ ì…ë ¥   -->
 
 
-<hr>
+<!-- ë°©ëª…ë¡ ë“±ë¡  -->
+<form onsubmit="return onSubmit();" name="addGuestBookFrm" action="/addGuestBook" method="post"> 
 
-<form onsubmit="return onSubmit();" name="addGuestBookFrm" action="/addGuestBook" method="post">
-
-	<div>
-		<table>
-			<tr> 
-				<th>¹æ¸í·Ï</th>
-			</tr>
-			<tr>
-				<td>ÀÌ¸§: </td>
-				<td><input type="text" name="name" id="name"></td>
-			</tr>
-			<tr>
-				<td>³»¿ë: </td>
-				<td><textarea name="content" id="content" placeholder="¿©·¯ºĞÀÇ ¼ÒÁßÇÑ ¹æ¸í·ÏÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä."></textarea></td>
-			</tr>
-		</table>
 	
-		<button type="submit" class="btns mid bgNavy"> µî·ÏÇÏ±â  </button>
-		
-	</div>
+	<div class="p30">
+		<input type="text" name="name" id="name">
+		<div><!-- ë‚´ìš©  -->
+			<span><textarea name="content" id="content" placeholder="ì—¬ëŸ¬ë¶„ì˜ ì†Œì¤‘í•œ ë°©ëª…ë¡ì„ ì‘ì„±í•´ì£¼ì„¸ìš”."style="height:100px"></textarea></span>
+		</div>
+
+		<button type="submit" class="btns mid bgNavy mt10"> ë“±ë¡í•˜ê¸°  </button>
+	</div>	
 	
 </form>
 

@@ -48,7 +48,6 @@ public class AlienController {
 	}
 	
 	
-	
 	// 2020-부스트코스-방명록만들기 
 	@RequestMapping("/guestbooks")
 	public String guestBooks() {
@@ -65,7 +64,11 @@ public class AlienController {
 	// 방명록 추가 
 	@RequestMapping("/addGuestBook")
 	public String addGuestBook(GuestBook guestbook) {
+		
+		System.out.println(guestbook);
 		service.addGuestBook(guestbook);
+		
+		
 		return "guestbooks";
 	}
 
@@ -101,7 +104,8 @@ public class AlienController {
 		// repo.save(alien)을 탈 수 있는 서비스 페이지로 이동
 		// ★ 저장에 실패했을 때 처리하는거 있어야함 /// --- Exception
 		service.addAlien(alien);
-
+		System.out.println(alien);
+		
 		// 저장되었습니다. 팝업띄운후 리스트 페이지로 돌아간다.
 		return "alienList";
 	}

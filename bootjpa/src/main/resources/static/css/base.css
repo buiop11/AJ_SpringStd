@@ -42,10 +42,11 @@ h1, h2, h3, h4, h5, h6 {font-weight:normal;}
 img {border:none; vertical-align:middle;}
 ol, ul, li, dl, dt, dd {list-style:none;}
 table {width:100%; border:0; border-spacing:0; border-collapse:collapse;}
-caption,
-figcaption {width:0; height:0; font-size:0;}
-caption > strong,
-caption > p {position:absolute; top:0; left:0; overflow:hidden; width:0; height:0; font-size:0; line-height:0; opacity:0;}
+/* caption, */
+/* figcaption {width:0; height:0; font-size:0;}
+ */
+ /* caption > strong,
+caption > p {position:absolute; top:0; left:0; overflow:hidden; width:0; height:0; font-size:0; line-height:0; opacity:0;} */
 th {font-weight:normal;}
 th, td {border:0; word-break:break-all; empty-cells:show;}
 fieldset {border:0;}

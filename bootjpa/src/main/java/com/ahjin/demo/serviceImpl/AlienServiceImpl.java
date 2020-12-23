@@ -36,7 +36,8 @@ public class AlienServiceImpl implements AlienService {
 	//---------부스트코스 방명록 ------------//
 	@Override
 	public List<GuestBook> getGuestBook() {
-		return guestbookRepo.findAll();
+		//return guestbookRepo.findAll();
+		return guestbookRepo.findAllByOrderByIdDesc();
 	}
 	// 방명록 저장 
 	@Override
