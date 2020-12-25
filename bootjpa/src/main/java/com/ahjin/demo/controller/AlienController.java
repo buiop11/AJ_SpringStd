@@ -22,6 +22,7 @@ import com.ahjin.demo.model.GuestBook;
 import com.ahjin.demo.service.AlienService;
 
 @Controller // @RestController 사용시 전부 값의 형태로 넘어가기 떄문에 아래 @ResponseBody 사용안해도됨
+@RequestMapping(value="/")
 public class AlienController {
 
 	/*
@@ -68,11 +69,10 @@ public class AlienController {
 		System.out.println(guestbook);
 		service.addGuestBook(guestbook);
 		
-		
 		return "guestbooks";
 	}
 
-	// --------- 게시판 ------- //
+	// --------- 게시판 -------JPA인지, mybatis인지확인-> 댓글때문에 mybatis로 옮긴듯  //
 	@RequestMapping("/alienList") // 게시판 리스트
 	public String alienList() {
 		return "alienList";
@@ -131,7 +131,13 @@ public class AlienController {
 
 		return "showAlien";
 	}
+	
 
+	// location (주소)
+	@RequestMapping("/location")
+	public String location() {
+		return "location";
+	}
 
 
 	/*

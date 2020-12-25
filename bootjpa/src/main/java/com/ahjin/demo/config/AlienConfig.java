@@ -13,8 +13,7 @@ public class AlienConfig implements WebMvcConfigurer {
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		
-		InternalResourceViewResolver viewResolver = 
-				new InternalResourceViewResolver();
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
