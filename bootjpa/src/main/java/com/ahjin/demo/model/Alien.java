@@ -42,44 +42,6 @@ public class Alien implements BeanNameAware {
 	private int readCnt;  // 조회수 
 	
 
-
-	/*
-	 * public int getAid() { return aid; }
-	 * 
-	 * 
-	 * public void setAid(int aid) { this.aid = aid; }
-	 * 
-	 * 
-	 * public String getAname() { return aname; }
-	 * 
-	 * 
-	 * public void setAname(String aname) { this.aname = aname; }
-	 * 
-	 * 
-	 * public String getTitle() { return title; }
-	 * 
-	 * 
-	 * public void setTitle(String title) { this.title = title; }
-	 * 
-	 * 
-	 * public String getContent() { return content; }
-	 * 
-	 * 
-	 * public void setContent(String content) { this.content = content; }
-	 * 
-	 * 
-	 * public Date getWriteDay() { return writeDay; }
-	 * 
-	 * 
-	 * public void setWriteDay(Date writeDay) { this.writeDay = writeDay; }
-	 * 
-	 * 
-	 * public int getReadCnt() { return readCnt; }
-	 * 
-	 * 
-	 * public void setReadCnt(int readCnt) { this.readCnt = readCnt; }
-	 */
-
 	// BeanNameAware 오버라이드 (@Component 로 빈추가를 해주면 확인가능)
 	@Override
 	public void setBeanName(String name) {
