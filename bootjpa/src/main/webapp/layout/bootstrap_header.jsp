@@ -1,18 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
- 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>어시오시오♡ 아댕의숍</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="/bootstrap/concept-master/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/libs/css/style.css">
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-</head>
 
 <body>
 
@@ -120,8 +107,10 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link nav-user-img" href="/login"><!-- id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" -->
                             <i class="fas fa-user mr-2"></i>로그인</a>
+                            
+                            <!-- 위의 주석으로 아래 드롭다운 무력화시켜둠 -->
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">로그인한 사람 이름!!</h5>

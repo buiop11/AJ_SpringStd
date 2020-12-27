@@ -8,7 +8,7 @@
 
 
 <head>
-	<!-- Bootstrap CSS -->
+	<jsp:include page="/layout/bootstrap_css.jsp" flush="false" />
 </head>
 
 
@@ -325,7 +325,7 @@
 
 
 <!-- Optional JavaScript -->
-<jsp:include page="/layout/common.jsp" flush="false" />
+<jsp:include page="/layout/bootstrap_js.jsp" flush="false" />
 
 
 </body>

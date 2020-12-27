@@ -8,9 +8,7 @@
 
 
 <head>
-	<!-- Bootstrap CSS -->
-	<link href="bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.css" rel="stylesheet">
-	<link href="bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.print.css" rel="stylesheet" media="print">
+	<jsp:include page="/layout/bootstrap_css.jsp" flush="false" />
 </head>
 
 
@@ -590,14 +588,7 @@
 
 
 <!-- Optional JavaScript -->
-<jsp:include page="/layout/common.jsp" flush="false" />
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/moment.min.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/fullcalendar.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/jquery-ui.min.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/calendar.js"></script>
-<script src="bootstrap/concept-master/assets/libs/js/main-js.js"></script>
-
-
+<jsp:include page="/layout/bootstrap_js.jsp" flush="false" />
 </body>
 
 
