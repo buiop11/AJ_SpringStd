@@ -42,7 +42,7 @@
 					                <tr>
 					                    <td>${row.aid}</td>
 					                    <td>
-					                    	<a href="/getAlien?aid=${row.aid}">${row.title}</a>
+					                    	<a href="/board/getBoard?aid=${row.aid}">${row.title}</a>
 					                    </td>
 					                    <td>${row.aname}</td>
 					                    <td>${row.readCnt}</td>

@@ -12,26 +12,26 @@
 	</c:if>
 	
 	<c:if test="${not empty comments}">
-		<table>
+		<table class="table table-striped">
 			<c:forEach var="row" items="${comments}">
 				<c:if test="${row.depth == 1}">
 					<tr>
-						<td>확인차: ${row.conum}</td>  
+						<td>${row.conum}</td>  
 						<td>${row.writer}</td>
 						<td>${row.comment}</td>
-						<td>날짜 :: ${row.commentdate}</td>
+						<td>${row.commentdate}</td>
 						<td id="depth_color">${row.depth} :: ${row.depth2}</td>
-						<td><input type="button" value="답글 re::" 
+						<td><input type="button" value="대댓글달기" 
 						onclick="javascript:rere('${row.conum}','${row.writer}','${row.comment}','${row.commentdate}');"></td>
 					</tr>
 				</c:if>
 				<c:if test="${row.depth == 2}">
-					<tr style="background-color:pink;">
-						<td>--></td>
-						<td>확인차: ${row.conum}</td>  
+					<tr>
+						<td><i class="fas fa-arrow-circle-right"></i></td>
+						<td>${row.conum}</td>  
 						<td>${row.writer}</td>
 						<td>${row.comment}</td>
-						<td>날짜 :: ${row.commentdate}</td>
+						<td>${row.commentdate}</td>
 						<td id="depth_color">${row.depth} :: ${row.depth2}</td>
 					</tr>
 				</c:if>

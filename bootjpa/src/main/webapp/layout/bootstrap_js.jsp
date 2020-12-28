@@ -38,3 +38,5 @@
 <!-- js 유효성검사 -->
 <script src="/bootstrap/concept-master/assets/vendor/parsley/parsley.js"></script>
 
+<!-- 댓글 comment -->
+<script src="bootstrap/concept-master/assets/assets/vendor/dropzone/dropzone.js"></script>
