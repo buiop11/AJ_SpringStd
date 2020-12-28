@@ -12,8 +12,8 @@
 
 
 <!-- ALIEN 리스트 뽑아오기  -->
-<select id="selectAlienList" resultType="Map"> <!-- 여기는 무조건 Map으로해야함 -->
-	select aid, aname, title, content, writeday, readcnt from alien  
+<select id="selectAlienList" parameterType="Map" resultType="Map"> <!-- 여기는 무조건 Map으로해야함 -->
+	select aid, aname, title, content, writeday, readcnt from alien where aid between #{start} and #{end}
 </select>
 
 

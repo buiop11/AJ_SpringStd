@@ -1,5 +1,6 @@
 package com.ahjin.demo.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ import com.ahjin.demo.model.CommentVO;
 public interface AlienMapper {
 
 	// 리스트 뽑아오기 
-	public List<Alien> selectAlienList() throws Exception;
+	public List<Alien> selectAlienList(HashMap<String,Object> page) throws Exception;
 	
 	// 코멘트 리스트 뽑아오기 
 	public List<CommentVO> selectFindParentDesc(int parent) throws Exception;

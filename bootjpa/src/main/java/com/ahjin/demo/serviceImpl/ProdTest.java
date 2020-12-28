@@ -1,5 +1,6 @@
 package com.ahjin.demo.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -73,6 +74,12 @@ public class ProdTest implements AlienService {
 	public int addGuestBook(GuestBook guestbook) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<Alien> getMapperList(HashMap<String, Object> page) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

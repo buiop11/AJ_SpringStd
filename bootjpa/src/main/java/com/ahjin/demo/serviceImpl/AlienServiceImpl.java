@@ -1,5 +1,6 @@
 package com.ahjin.demo.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -110,8 +111,8 @@ public class AlienServiceImpl implements AlienService {
 	
 	// mybatis로 리스트 가져오기 
 	@Override
-	public List<Alien> getMapperList() throws Exception {
-		return alienMapper.selectAlienList();
+	public List<Alien> getMapperList(HashMap<String,Object> page) throws Exception {
+		return alienMapper.selectAlienList(page);
 	}
 
 	// 코멘트 가지고 오기 
@@ -121,7 +122,11 @@ public class AlienServiceImpl implements AlienService {
 		return alienMapper.selectFindParentDesc(parent);
 	}
 
-
+	// 지울거 
+	@Override
+	public List<Alien> getMapperList() throws Exception {
+		return null;
+	}
 	
 
 	

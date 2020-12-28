@@ -13,14 +13,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-// 최대한 자바스크립트로 해보자. 
-window.addEventListener('DOMContentLoaded', function(){
+	// 최대한 자바스크립트로 해보자. 
+	window.addEventListener('DOMContentLoaded', function(){
 
+		 var start = document.getElementById("start").value;
+		 var end = document.getElementById("end").value;
+		 var alldata = {"start":start, "end":end}
+	
 		//alert("로드도미??");
 		$.ajax({
 			type:"post",
 			url:"/board/ajaxBoardList",
-			//data:data,
+			data:alldata,
 			success : function(data){
 				$('div#tBody').html(data);
 			},
@@ -28,23 +32,36 @@ window.addEventListener('DOMContentLoaded', function(){
             }
 		});
 
+
+		// 야매로 클릭한 색 바꾸기
+		if(start == 1){
+			document.getElementById("page1").classList.add("active");
+			document.getElementById("page2").classList.remove("active");
+			document.getElementById("page3").classList.remove("active");
+		}else if(start == 4){
+			document.getElementById("page1").classList.remove("active");
+			document.getElementById("page2").classList.add("active");
+			document.getElementById("page3").classList.remove("active");
+		}else if(start == 7){
+			document.getElementById("page1").classList.remove("active");
+			document.getElementById("page2").classList.remove("active");
+			document.getElementById("page3").classList.add("active");
+		}
+
+
 	})
 	
 	
-function goAdd(){
-	var con = confirm("게시글을 추가하겠습니까?");
-	if(con){
-		window.location="/board/goAddPage";
-	}
-}	
+	function goAdd(){
+		var con = confirm("게시글을 추가하겠습니까?");
+		if(con){
+			window.location="/board/goAddPage";
+		}
+	}	
+
 	
 	
 </script>
-
-	
-
-</head>
-
 
 <body>
 <div class="dashboard-main-wrapper">
@@ -77,9 +94,26 @@ function goAdd(){
 				</div>
 			</div> <!-- row -->
 			
+			<!-- 페이징 처리를 위해 ajax 값 보낼거 -->
+			<input type="hidden" id="start" value="${start}" />
+			<input type="hidden" id="end" value="${end}" />
+			
 			<div id="tBody">
 				<!-- ajaxSubmt을 이용하여 리스트가 표시되는 부분 -->
 			</div>
+			
+			<!-- 페이징 처리  -->
+			<nav aria-label="Page navigation example" style="margin-top:10px;">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="/board/boardList?start=${start-3}&end=${end-3}">Previous</a></li>
+					<li class="page-item" id="page1"><a class="page-link" href="/board/boardList?start=1&end=3">1</a></li>
+					<li class="page-item" id="page2"><a class="page-link " href="/board/boardList?start=${start+3}&end=${end+3}">2</a></li>
+					<li class="page-item" id="page3"><a class="page-link" href="/board/boardList?start=${start+6}&end=${end+9}">3</a></li>
+					<li class="page-item"><a class="page-link" href="/board/boardList?start=${start+3}&end=${end+3}">Next</a></li>
+				</ul>
+			</nav> 
+			<!-- 페이징 처리 끝 -->
+			
 			
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
 				<button class="btn btn-primary" type="button" onclick="javascript:goAdd();">게시글 등록</button>
