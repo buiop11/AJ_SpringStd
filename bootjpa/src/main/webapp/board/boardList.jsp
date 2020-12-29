@@ -6,52 +6,65 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 <jsp:include page="/layout/bootstrap_css.jsp" flush="false" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.form.min.js"></script> <!-- 20201229 추가해야함 + static 폴더에도 추가   -->
+<script type="text/javascript" src="/js/locationHash.js"></script> <!-- 20201229 추가해야함  -->
 <script type="text/javascript">
 
-	// 최대한 자바스크립트로 해보자. 
-	window.addEventListener('DOMContentLoaded', function(){
+// 최대한 자바스크립트로 해보자. 
+window.addEventListener('DOMContentLoaded', function(){
 
-		 var start = document.getElementById("start").value;
-		 var end = document.getElementById("end").value;
-		 var alldata = {"start":start, "end":end}
+	<!-- 20201229 추가해야함  -->
+	$(function(e){
+
+		alert("????");
+	    //ajax submit 설정
+	    var options = {
+	        type : 'POST',
+	        success : renderList,
+	        error : error
+	    };
+	    $('#SearchFrm').ajaxForm(options);
+        locationHash.init(search);
+        if(window.location.hash == '') { //최초 로드 또는 조회화면에서 목록 버튼을 이용하여 리스트로 이동
+            changeLocationHash();
+        }else { //조회화면에서 뒤로가기를 이용하여 리스트로 이동 또는 F5외의 수단을 이용하여 페이지를 refresh할때
+            search(locationHash.getPageNumByHash());
+        }
+	}); 
+
+})
 	
-		//alert("로드도미??");
-		$.ajax({
-			type:"post",
-			url:"/board/ajaxBoardList",
-			data:alldata,
-			success : function(data){
-				$('div#tBody').html(data);
-			},
-			error :  function(request,status,error) {
-            }
-		});
-
-
-		// 야매로 클릭한 색 바꾸기
-		if(start == 1){
-			document.getElementById("page1").classList.add("active");
-			document.getElementById("page2").classList.remove("active");
-			document.getElementById("page3").classList.remove("active");
-		}else if(start == 4){
-			document.getElementById("page1").classList.remove("active");
-			document.getElementById("page2").classList.add("active");
-			document.getElementById("page3").classList.remove("active");
-		}else if(start == 7){
-			document.getElementById("page1").classList.remove("active");
-			document.getElementById("page2").classList.remove("active");
-			document.getElementById("page3").classList.add("active");
-		}
-
-
-	})
+	// 페이지 넘버 변경시 타는 function
+	function changeLocationHash(pageNum) {
+        if(typeof pageNum !== 'undefined') {
+            $('#SearchFrm input[name=page]').val(pageNum);
+        }
+        
+        locationHash.setHash($('#SearchFrm input[name=page]').val());
+    }
 	
-	
+	function search(pageNum) {
+	    if (pageNum) {
+	        $('input[name=page]').val(pageNum);
+	    }
+	    $('#SearchFrm').submit();
+	}
+
+	//성공시 탄다
+	function renderList(responseText, statusText, xhr, $form) {
+	    $('#section_body').html(responseText);
+	}
+
+	//에러시 탄다
+	function error(responseText, statusText, xhr, $form) {
+	    alert('웹진 실행도중 오류가 발생하였습니다. 관리자에게 문의하세요');
+	}
+
+	// 내꺼
 	function goAdd(){
 		var con = confirm("게시글을 추가하겠습니까?");
 		if(con){
@@ -59,6 +72,8 @@
 		}
 	}	
 
+	// ============= 으아앙 ㅠㅠㅠㅠ 검색 슈발 
+	// ============= 검색 자바 스크립트 처리 못함 ㅠㅠ reviewList / exhibitionList 참고 ============== 
 	
 	
 </script>
@@ -94,25 +109,40 @@
 				</div>
 			</div> <!-- row -->
 			
-			<!-- 페이징 처리를 위해 ajax 값 보낼거 -->
-			<input type="hidden" id="start" value="${start}" />
-			<input type="hidden" id="end" value="${end}" />
+			<!-- 페이징 처리를 위해 ajax 값 보낼거  20201228-->
+			<%-- <input type="hidden" id="start" value="${start}" />
+			<input type="hidden" id="end" value="${end}" /> --%>
 			
-			<div id="tBody">
+			<!-- krt 20201229 -->
+			<form name="SearchFrm" id="SearchFrm" method="get" action="/board/ajaxBoardList"> 
+				<input type="hidden" id="page" name="page" value="${(empty postParam) ? '1' : postParam.page}" />
+				<input type="hidden" id="perPageNum" name="perPageNum" value="${(empty postParam) ? '9' : postParam.perPageNum}" />
+				<!-- 검색용 추가   -->
+				<input type="hidden" id="section" name="section" value="${(empty postParam) ? '' : postParam.section}" />
+			
+				<div class="boardSearchWrap">
+					<div class="uiWrap boardSearch">
+						<span class="selectWrap">
+							<select id="searchType" name="searchType">
+								<option value="SUBJECT" <c:if test="${postParam.searchType eq 'SUBJECT'}">selected</c:if>>제목</option>
+								<option value="SUBJECTCON" <c:if test="${postParam.searchType eq 'SUBJECTCON'}">selected</c:if>>제목+내용</option>
+								<option value="USER_NAME" <c:if test="${postParam.searchType eq 'USER_NAME'}">selected</c:if>>작성자</option>
+							</select>
+						</span>
+						<span class="inputWrap">
+							<input type="text" name="searchWord" id="searchWord" placeholder="검색어를 입력하세요." value="${postParam.searchWord}">
+						</span>
+						<span class="btnsWrap">
+							<button type="button" class="btns mid bgNavy" onclick="changeLocationHash(1);"><span>검색</span></button>
+						</span>
+					</div>
+				</div> 
+				<!-- 검색용 추가  끝 -->
+			</form>
+			
+			<div id="section_body">
 				<!-- ajaxSubmt을 이용하여 리스트가 표시되는 부분 -->
 			</div>
-			
-			<!-- 페이징 처리  -->
-			<nav aria-label="Page navigation example" style="margin-top:10px;">
-				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="/board/boardList?start=${start-3}&end=${end-3}">Previous</a></li>
-					<li class="page-item" id="page1"><a class="page-link" href="/board/boardList?start=1&end=3">1</a></li>
-					<li class="page-item" id="page2"><a class="page-link " href="/board/boardList?start=${start+3}&end=${end+3}">2</a></li>
-					<li class="page-item" id="page3"><a class="page-link" href="/board/boardList?start=${start+6}&end=${end+9}">3</a></li>
-					<li class="page-item"><a class="page-link" href="/board/boardList?start=${start+3}&end=${end+3}">Next</a></li>
-				</ul>
-			</nav> 
-			<!-- 페이징 처리 끝 -->
 			
 			
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
@@ -131,7 +161,14 @@
 
 
 <!-- Optional JavaScript -->
-<jsp:include page="/layout/bootstrap_footer.jsp" flush="false" />
+<%-- <jsp:include page="/layout/bootstrap_js.jsp" flush="false" /> --%>
+<!-- jquery 3.3.1 이있어서 단체로 안불러오고 3개만 따로 끌어옴 -->
+<!-- bootstap bundle js -->
+<script src="/bootstrap/concept-master/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="/bootstrap/concept-master/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="/bootstrap/concept-master/assets/libs/js/main-js.js"></script>
 
 </body>
 

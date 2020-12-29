@@ -1,7 +1,6 @@
 package com.ahjin.demo.controller;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ahjin.demo.model.Alien;
+import com.ahjin.demo.model.Criteria;
 import com.ahjin.demo.service.AlienService;
 
 @Controller // @RestController 사용시 전부 값의 형태로 넘어가기 떄문에 아래 @ResponseBody 사용안해도됨
@@ -26,39 +27,58 @@ public class BoardController {
 	AlienService service;
 
 
-	// --------- 게시판 ------- JPA로 처리해보기(일단은 mybatis)- 
-	@RequestMapping("/boardList") // 게시판 리스트
-	public String boardList(@RequestParam(value="start",defaultValue = "1") int start, 
-			@RequestParam(value="end",defaultValue = "3") int end, Model model) {
-		
-		model.addAttribute("start", start);
-		model.addAttribute("end",end);
-		
+	// --------- 게시판 ------- JPA로 처리해보기(일단은 mybatis)- 20201228
+//	@RequestMapping("/boardList") // 게시판 리스트
+//	public String boardList(@RequestParam(value="start",defaultValue = "1") int start, 
+//			@RequestParam(value="end",defaultValue = "3") int end, Model model) {
+//		
+//		model.addAttribute("start", start);
+//		model.addAttribute("end",end);
+//		
+//		return "/board/boardList";
+//	}
+	
+	// 리스트 뿌리기 20201228
+	// @ResponseBody
+//	@RequestMapping(value = "/ajaxBoardList")
+//	public String ajaxBoardList(HttpServletRequest req, Model model) throws Exception {
+//		
+//		String a = req.getParameter("start");
+//		String b = req.getParameter("end");
+//		int start = Integer.parseInt(a);
+//		int end = Integer.parseInt(b);
+//		System.out.println("여기 파람으로 넘오오나여???" + start + "," + end);
+//		
+//		HashMap<String, Object> page = new HashMap<String,Object>();
+//		page.put("start", start);
+//		page.put("end", end);
+//		
+//		//List<Alien> alienList = service.getAlienList();  // --> 이거 JPA 임.. 
+//		// List<Alien> alienList = repo.findAll(); // 전체 가져오기
+//		List<Alien> alienList = service.getMapperList(page);
+//		model.addAttribute("boardList", alienList);
+//
+//		return "/board/ajaxBoardList";
+//	}
+	
+	// krt 20201229
+	@RequestMapping(value="/boardList") 
+	public String webzineList(Model model, @RequestParam Map<String, Object> param, RedirectAttributes attr) {
+		attr.addFlashAttribute("postParam" , param);
 		return "/board/boardList";
 	}
-
-	// 리스트 뿌리기
-	// @ResponseBody
+	
+	// krt 리스트 뿌리기 20201229
 	@RequestMapping(value = "/ajaxBoardList")
-	public String ajaxBoardList(HttpServletRequest req, Model model) throws Exception {
-		
-		String a = req.getParameter("start");
-		String b = req.getParameter("end");
-		int start = Integer.parseInt(a);
-		int end = Integer.parseInt(b);
-		System.out.println("여기 파람으로 넘오오나여???" + start + "," + end);
-		
-		HashMap<String, Object> page = new HashMap<String,Object>();
-		page.put("start", start);
-		page.put("end", end);
-		
-		//List<Alien> alienList = service.getAlienList();  // --> 이거 JPA 임.. 
-		// List<Alien> alienList = repo.findAll(); // 전체 가져오기
-		List<Alien> alienList = service.getMapperList(page);
-		model.addAttribute("boardList", alienList);
+    public String ajaxWebzineList(Model model,Criteria cri, @RequestParam Map<String, Object> param) throws Exception {
 
-		return "/board/ajaxBoardList";
-	}
+	   model.addAttribute("pageMaker", service.pagingInfo(param, cri));
+	   model.addAttribute("boardList", service.getMapperList(param));  // hashMap -> map으로
+		
+    	return "/board/ajaxBoardList";
+    }
+	
+
 
 	// 추가하기페이지로 이동
 	@RequestMapping("/goAddPage")

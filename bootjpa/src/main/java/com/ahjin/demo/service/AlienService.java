@@ -2,10 +2,13 @@ package com.ahjin.demo.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
+import com.ahjin.demo.model.Criteria;
 import com.ahjin.demo.model.GuestBook;
+import com.ahjin.demo.model.PageMaker;
 
 
 public interface AlienService {
@@ -37,13 +40,18 @@ public interface AlienService {
 	
 	
 	// ★★mybatis로 게시판(alien) 리스트 가져오기 
-	public List<Alien> getMapperList(HashMap<String,Object> page) throws Exception;
+	public List<Alien> getMapperList(Map<String, Object> param) throws Exception;
 	// mybatis로 가져오는거는 throws 다 던져야 하나보다. 
 	// 댓글 리스트 가져오기 (aid에 맞춘) - 다른 테이블 
 	public List<CommentVO> getComment(int alienNum) throws Exception;
 	
-	// 지울거
+	// 지울거 - prod 
 	List<Alien> getMapperList() throws Exception;
+	List<Alien> getMapperList(HashMap<String, Object> page) throws Exception;
+	PageMaker webzinePagingInfo(Map<String, Object> param, Criteria cri) throws Exception;
+	
+	// 게시판 페이징 20201229
+    public PageMaker pagingInfo(Map<String, Object> param, Criteria cri) throws Exception;
 	
 	
 }

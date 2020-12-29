@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
+import com.ahjin.demo.model.Criteria;
 import com.ahjin.demo.model.GuestBook;
+import com.ahjin.demo.model.PageMaker;
 import com.ahjin.demo.service.AlienService;
 
 
@@ -78,6 +80,24 @@ public class ProdTest implements AlienService {
 
 	@Override
 	public List<Alien> getMapperList(HashMap<String, Object> page) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Alien> getMapperList(Map<String, Object> param) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PageMaker webzinePagingInfo(Map<String, Object> param, Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PageMaker pagingInfo(Map<String, Object> param, Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

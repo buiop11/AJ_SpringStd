@@ -13,8 +13,8 @@
 
 
 <!-- home -->
-<link href="bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.css" rel="stylesheet">
-<link href="bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.print.css" rel="stylesheet" media="print">
+<link href="/bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.css" rel="stylesheet">
+<link href="/bootstrap/concept-master/assets/vendor/full-calendar/css/fullcalendar.print.css" rel="stylesheet" media="print">
 
 <!-- board List -->
 <link rel="stylesheet" type="text/css" href="/bootstrap/concept-master/assets/vendor/datatables/css/dataTables.bootstrap4.css">

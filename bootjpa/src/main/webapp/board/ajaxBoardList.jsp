@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<!-- 20201229 추가  custom tag는  tagdir="/WEB-INF/tags"를 꼭 지켜야한다.-->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="custom" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <!-- 페이징 처리해야함!!!  -->
 <div class="row">
@@ -13,6 +18,7 @@
 			<h5 class="card-header">
 				<strong>뉴스&amp;공지사항 목록</strong>
 				<p>번호, 제목, 등록일, 조회 정보를 제공하는 목록입니다.</p>
+				<p>총<i class="count">${pageMaker.totalCount}</i>개의 내역이 존재합니다.</p>
 			</h5>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -56,10 +62,15 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 페이징 커스텀 태그 20201229-->
+		<custom:paging jsFunctionNm="changeLocationHash" pageMaker="${pageMaker}"/>
+		
 	</div>
 	<!-- ============================================================== -->
 	<!-- end basic table  -->
 	<!-- ============================================================== -->
+	
 </div>
 
 <%-- <br>

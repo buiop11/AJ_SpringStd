@@ -35,7 +35,7 @@
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
-    <form class="splash-container">
+    <form class="splash-container" data-parsley-validate="" >
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">Registrations Form</h3>
@@ -79,8 +79,9 @@
         </div>
     </form>
 
+<!-- Optional JavaScript -->
+<jsp:include page="/layout/bootstrap_js.jsp" flush="false" />
 
- 
 </body>
 
 

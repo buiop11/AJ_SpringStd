@@ -15,7 +15,9 @@ import com.ahjin.demo.dao.GuestBookRepo;
 import com.ahjin.demo.mapper.AlienMapper;
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CommentVO;
+import com.ahjin.demo.model.Criteria;
 import com.ahjin.demo.model.GuestBook;
+import com.ahjin.demo.model.PageMaker;
 import com.ahjin.demo.service.AlienService;
 
 @Service //핵심 비지니스 로직을 정의 (보기 쉽게)
@@ -111,7 +113,7 @@ public class AlienServiceImpl implements AlienService {
 	
 	// mybatis로 리스트 가져오기 
 	@Override
-	public List<Alien> getMapperList(HashMap<String,Object> page) throws Exception {
+	public List<Alien> getMapperList(Map<String,Object> page) throws Exception {
 		return alienMapper.selectAlienList(page);
 	}
 
@@ -127,7 +129,29 @@ public class AlienServiceImpl implements AlienService {
 	public List<Alien> getMapperList() throws Exception {
 		return null;
 	}
+	@Override
+	public List<Alien> getMapperList(HashMap<String, Object> page) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("prod 이거도 타나?");
+		return null;
+	}
+	@Override
+	public PageMaker webzinePagingInfo(Map<String, Object> param, Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
+	// 게시판 페이징 20201229
+	@Override
+	public PageMaker pagingInfo(Map<String, Object> param, Criteria cri) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+        pageMaker.setCri(cri);
+        pageMaker.setTotalCount(alienMapper.selectAlienListCount(param)); // 리스트 수 가지고오기 
+        param.put("startPage", cri.getPageStart());
+        param.put("endPage", cri.getPageEnd());
+        return pageMaker;
+	}
 
 	
 }

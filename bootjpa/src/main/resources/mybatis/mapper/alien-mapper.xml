@@ -11,9 +11,37 @@
 </select> -->
 
 
-<!-- ALIEN 리스트 뽑아오기  -->
+<!-- ALIEN 리스트 뽑아오기  --><!--20201229  #{} 태그 안 이름 바꿈   -->
 <select id="selectAlienList" parameterType="Map" resultType="Map"> <!-- 여기는 무조건 Map으로해야함 -->
-	select aid, aname, title, content, writeday, readcnt from alien where aid between #{start} and #{end}
+	select * from (
+	select aid, aname, title, content, writeday, readcnt from alien 
+  	<if test="searchType != null and searchType != '' and searchWord != null and searchWord != ''">
+ 		<choose>
+ 			<when test="searchType == 'ALL'">  
+ 				 where title LIKE CONCAT(‘%', #{searchWord}, '%’) OR aname LIKE CONCAT(‘%', #{searchWord}, '%’) 
+ 			</when>
+ 			<when test="searchType == 'SUBJECT'">
+  				where  title LIKE CONCAT(‘%', #{searchWord}, '%’) 
+ 			</when>
+ 			<when test="searchType == 'SUBJECTCON'">
+                where  title LIKE CONCAT(‘%', #{searchWord}, '%’) OR content LIKE CONCAT(‘%', #{searchWord}, '%’)
+            </when>
+ 			<when test="searchType == 'USER_NAME'">
+  				where aname LIKE CONCAT(‘%', #{searchWord}, '%’)
+ 			</when>
+ 		</choose>
+ 	</if>
+ 	) aa 
+	<if test="type==null">
+			WHERE aid BETWEEN #{startPage} AND #{endPage}
+	</if>
+	
+</select>
+
+
+<!-- 게시판 숫자 세기 20201229 -->
+<select id="selectAlienListCount" parameterType="Map" resultType="Integer"> <!-- 여기는 무조건 Map으로해야함 -->
+	SELECT COUNT(aid) FROM alien
 </select>
 
 

@@ -12,11 +12,11 @@
 <script src="/bootstrap/concept-master/assets/libs/js/main-js.js"></script>
 
 <!--  home  -->
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/moment.min.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/fullcalendar.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/jquery-ui.min.js"></script>
-<script src="bootstrap/concept-master/assets/vendor/full-calendar/js/calendar.js"></script>
-<script src="bootstrap/concept-master/assets/libs/js/main-js.js"></script>
+<script src="/bootstrap/concept-master/assets/vendor/full-calendar/js/moment.min.js"></script>
+<script src="/bootstrap/concept-master/assets/vendor/full-calendar/js/fullcalendar.js"></script>
+<script src="/bootstrap/concept-master/assets/vendor/full-calendar/js/jquery-ui.min.js"></script>
+<script src="/bootstrap/concept-master/assets/vendor/full-calendar/js/calendar.js"></script>
+<script src="/bootstrap/concept-master/assets/libs/js/main-js.js"></script>
 
 <!-- board List  -->
 <script src="/bootstrap/concept-master/assets/vendor/multi-select/js/jquery.multi-select.js"></script>
@@ -39,4 +39,4 @@
 <script src="/bootstrap/concept-master/assets/vendor/parsley/parsley.js"></script>
 
 <!-- 댓글 comment -->
-<script src="bootstrap/concept-master/assets/assets/vendor/dropzone/dropzone.js"></script>
+<script src="/bootstrap/concept-master/assets/assets/vendor/dropzone/dropzone.js"></script>

@@ -8,6 +8,7 @@
 
 
 <head>
+	<jsp:include page="/layout/bootstrap_css.jsp" flush="false" />
 	<link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/charts/morris-bundle/morris.css">
 	<link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
 </head>
@@ -573,7 +574,7 @@
 
 
 <!-- Optional JavaScript -->
-<jsp:include page="/layout/common.jsp" flush="false" />
+<jsp:include page="/layout/bootstrap_js.jsp" flush="false" />
 
 </body>
 
