@@ -5,29 +5,22 @@
 <html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>비밀번호 찾기</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="/bootstrap/concept-master/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/libs/css/style.css">
-    <link rel="stylesheet" href="/bootstrap/concept-master/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+	<jsp:include page="/layout/bootstrap_css.jsp" flush="false" />
+	   
     <style>
-    html,
-    body {
-        height: 100%;
-    }
-
-    body {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-        align-items: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
+	    html,
+	    body {
+	        height: 100%;
+	    }
+	
+	    body {
+	        display: -ms-flexbox;
+	        display: flex;
+	        -ms-flex-align: center;
+	        align-items: center;
+	        padding-top: 40px;
+	        padding-bottom: 40px;
+	    }
     </style>
 </head>
 
@@ -40,7 +33,7 @@
             <div class="card-header text-center"><img class="logo-img" src="/bootstrap/concept-master/assets/images/logo.png" alt="logo"><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
                 <form>
-                    <p>Don't worry, we'll send you an email to reset your password.</p>
+                    <p>걱정마, 우리가 임시비밀번호를 네 이메일로 쏴줄게!</p>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="Your Email" autocomplete="off">
                     </div>

@@ -45,13 +45,14 @@ public interface AlienService {
 	// 댓글 리스트 가져오기 (aid에 맞춘) - 다른 테이블 
 	public List<CommentVO> getComment(int alienNum) throws Exception;
 	
-	// 지울거 - prod 
-	List<Alien> getMapperList() throws Exception;
-	List<Alien> getMapperList(HashMap<String, Object> page) throws Exception;
-	PageMaker webzinePagingInfo(Map<String, Object> param, Criteria cri) throws Exception;
 	
 	// 게시판 페이징 20201229
     public PageMaker pagingInfo(Map<String, Object> param, Criteria cri) throws Exception;
+    
+    // 지울거 - prod 
+    List<Alien> getMapperList() throws Exception;
+    List<Alien> getMapperList(HashMap<String, Object> page) throws Exception;
+    PageMaker webzinePagingInfo(Map<String, Object> param, Criteria cri) throws Exception;
 	
 	
 }

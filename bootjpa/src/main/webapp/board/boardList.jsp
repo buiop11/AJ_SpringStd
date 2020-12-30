@@ -20,9 +20,8 @@ window.addEventListener('DOMContentLoaded', function(){
 	<!-- 20201229 추가해야함  -->
 	$(function(e){
 
-		alert("????");
+		//alert("????");
 	    //ajax submit 설정
-	    var options = {
 	        type : 'POST',
 	        success : renderList,
 	        error : error
@@ -72,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function(){
 		}
 	}	
 
-	// ============= 으아앙 ㅠㅠㅠㅠ 검색 슈발 
+	// ============= 으아앙 ㅠㅠㅠㅠ 검색 슈발 ============================
 	// ============= 검색 자바 스크립트 처리 못함 ㅠㅠ reviewList / exhibitionList 참고 ============== 
 	
 	
@@ -117,9 +116,9 @@ window.addEventListener('DOMContentLoaded', function(){
 			<form name="SearchFrm" id="SearchFrm" method="get" action="/board/ajaxBoardList"> 
 				<input type="hidden" id="page" name="page" value="${(empty postParam) ? '1' : postParam.page}" />
 				<input type="hidden" id="perPageNum" name="perPageNum" value="${(empty postParam) ? '9' : postParam.perPageNum}" />
+				
 				<!-- 검색용 추가   -->
 				<input type="hidden" id="section" name="section" value="${(empty postParam) ? '' : postParam.section}" />
-			
 				<div class="boardSearchWrap">
 					<div class="uiWrap boardSearch">
 						<span class="selectWrap">

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,11 +16,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ahjin.demo.model.Alien;
 import com.ahjin.demo.model.CrawlingVO;
 import com.ahjin.demo.model.GuestBook;
+import com.ahjin.demo.model.MemberVO;
 import com.ahjin.demo.service.AlienService;
+import com.ahjin.demo.service.MemberService;
 
 @Controller // @RestController 사용시 전부 값의 형태로 넘어가기 떄문에 아래 @ResponseBody 사용안해도됨
 @RequestMapping(value="/")
@@ -31,6 +35,9 @@ public class AlienController {
 
 	@Autowired(required = true)
 	AlienService service;
+	
+	@Autowired(required = true)
+	MemberService memberService;
 
 	@Value("${logging.file}")
 	private String loggingFile;
@@ -139,10 +146,45 @@ public class AlienController {
 		return "location";
 	}
 	
+	// ========= member ===============
 	// 로그인 
 	@RequestMapping("/login")
 	public String login() {
 		return "/member/login";
+	}
+	
+	// 로그인 처리 
+	@RequestMapping("/loginPro")
+	public String loginPro(HttpSession session) {
+		
+		// 세션 추가 해야함
+		// 쿠키 추가해야함 (id 저장하기 넣게) 
+		//session.setAttribute("sessionVO", value);
+		return "";
+	}
+	
+	// 로그아웃
+	@RequestMapping("/logout")
+	public String logout() {
+		// 세션 초기화 
+		//session.invalidate(); //session 초기화
+//	    @ResponseBody
+//	    public ResultVO logout(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception {
+//	        try {
+//	            if (session.getAttribute("sessionVO") != null) {
+//	                //로그 아웃시에 모든 쿠키 값들을 비워줌
+//	                this.ClearAirsCookie(response);
+//	                session.invalidate(); //session 초기화
+//	            }
+//	            response.sendRedirect(request.getContextPath() + "/");
+//	        } catch (Exception e) {
+//	        }
+//
+//	        ResultVO resultVO = new ResultVO();
+//	        return resultVO;
+//	    }
+		
+		return "";
 	}
 	
 	// 회원가입 
@@ -151,12 +193,21 @@ public class AlienController {
 		return "/member/signUp";
 	}
 	
-	// 비밀번호 찾기 
+	// 비밀번호 찾기 (이메일 발송)
 	@RequestMapping("/forgotPassword")
 	public String forgotPassword() {
 		return "/member/forgotPassword";
 	}
 
+	// 회원가입 등록 
+	@RequestMapping(value="/registerMember", method=RequestMethod.POST)
+	public String registerMember(MemberVO member, Model model) {
+		int result = memberService.addMember(member);
+		model.addAttribute("result", result);
+		return "/member/signUpPro";
+	}
+	
+	// 아이디 중복확인 해야겠네 (일단 이메일은 제외한다..)
 
 	/*
 	 * @RequestMapping("/makeComment") public int makeComment(CommentVO comment) {

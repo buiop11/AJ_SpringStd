@@ -59,23 +59,24 @@ public class AlienServiceImpl implements AlienService {
 	@Override public List<Alien> getAlienList() { 
 		return alienRepo.findAll(); 
 	}
+	
 	// 게시글 1개 가져오기  
 	@Override
 	public Alien getOneAlien(int aid) {
 		return alienRepo.getOne(aid);
 	}
+	
 	// 게시글 1건 추가하기
 	@Override
 	public int addAlien(Alien alien) {
 		int result = 0; 
-		
 		if(alien !=null) {
 			alienRepo.save(alien);
 			result = 1;
 		}
-		
 		return result;
 	}
+	
 	// 게시글 1건 삭제하기 
 	@Override
 	public void deleteAlien(int aid) {

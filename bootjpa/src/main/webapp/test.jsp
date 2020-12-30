@@ -17,7 +17,7 @@
             <p>번호, 제목, 등록일, 조회 정보를 제공하는 목록입니다.</p>
         </caption>
        
-          <div><b>  Mapper test 페이지 입니다. </b></div>
+          <div><b>  Mapper test 페이지 입니다. 회원가입성공 </b></div>
        
         <colgroup>
             <col style="width:10%;">
